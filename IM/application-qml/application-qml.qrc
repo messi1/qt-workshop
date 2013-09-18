@@ -3,9 +3,11 @@
         <file alias="main.qml">qml/main.qml</file>
         <file alias="SendMessage.qml">qml/SendMessage.qml</file>
         <file>qml/Common/Button.qml</file>
-        <file>qml/Common/SearchBox.qml</file>
         <file>qml/Common/images/clear.png</file>
         <file>qml/Common/images/lineedit-bg.png</file>
         <file>qml/Common/images/lineedit-bg-focus.png</file>
+        <file>qml/Common/AppListView.qml</file>
+        <file>qml/Common/ContactModel.qml</file>
+        <file>qml/Common/TextBox.qml</file>
     </qresource>
 </RCC>
