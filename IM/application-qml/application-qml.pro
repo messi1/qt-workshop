@@ -16,7 +16,11 @@ HEADERS += \
 OTHER_FILES += \
     qml/main.qml \
     qml/Button.qml \
-    qml/SendMessage.qml
+    qml/SendMessage.qml \
+    qml/Common/Button.qml \
+    qml/Common/TextBox.qml \
+    qml/Common/AppListView.qml \
+    qml/Common/ContactModel.qml
 
 RESOURCES += \
     application-qml.qrc

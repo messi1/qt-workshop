@@ -20,8 +20,8 @@ QML_GUI = \
 
 
 SUBDIRS = \
-    $${CPP_GUI} \
-    $${UIC_GUI} \
+#    $${CPP_GUI} \
+#    $${UIC_GUI} \
     $${QML_GUI} \
     messenger \
     unit-tests
