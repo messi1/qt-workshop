@@ -1,9 +1,9 @@
 Qt workshop at Symposium 2013
 =============================
 
-[![Build Status](https://travis-ci.org/raphaelmeyer/qt-workshop.png)](https://travis-ci.org/raphaelmeyer/qt-workshop)
+[![Build Status](https://travis-ci.org/messi1/qt-workshop.png?branch=master)](https://travis-ci.org/messi1/qt-workshop.png?branch=master)
 
-[![Coverage Status](https://coveralls.io/repos/raphaelmeyer/qt-workshop/badge.png)](https://coveralls.io/r/raphaelmeyer/qt-workshop)
+[![Coverage Status](https://coveralls.io/repos/messi1/qt-workshop/badge.png)](https://coveralls.io/r/messi1/qt-workshop)
 
 Setup
 -----
