@@ -11,6 +11,9 @@ class Command {
 public:
     static quint32 const KeepAlive;
     static quint32 const Message;
+    static quint32 const HostEvent;
+    static quint32 const ParticipateInEvent;
+    static quint32 const CallOutEvent;
 };
 
 class Communication : public QObject
@@ -20,7 +23,11 @@ public:
     Communication(IUdpSocket & udp_socket);
 
 public slots:
+    void handle_send_keepAlive(QString const & nickname);
     void handle_send_message(QString const & nickname, QString const & message);
+    void handle_send_hostEvent(QString const & nickname, QString const & title);
+    void handle_send_participateInEvent(QString const & nickname, QString const & title);
+    void handle_send_callOutEvent(QString const & nickname, QString const & title);
 
 
 private:
