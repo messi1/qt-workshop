@@ -9,7 +9,21 @@ static QString const expected_nickname = "Name";
 static QString const expected_message = "Hello world.";
 static QString const expected_titleEvent = "Beer";
 
-void ControllerTest::invoke_send_keepAlive_sends_signal_send_keepAlive()
+void ControllerTest::verify_receiving_of_keepAlive_when_user_is_not_defined_after_6_seconds()
+{
+    // arrange
+    IM::Controller testee;
+    QSignalSpy signal_spy(&testee, SIGNAL(send_keepAlive(QString const &)));
+
+    testee.set_nickname("");
+
+    QTest::qWait(6000);
+
+    // assert
+    QCOMPARE(signal_spy.count(), 0);
+}
+
+void ControllerTest::verify_receiving_of_keepAlive_when_user_is_defined_after_1_seconds()
 {
     // arrange
     IM::Controller testee;
@@ -17,8 +31,21 @@ void ControllerTest::invoke_send_keepAlive_sends_signal_send_keepAlive()
 
     testee.set_nickname(expected_nickname);
 
-    // act
-    testee.invoke_send_keepAlive();
+    QTest::qWait(1000);
+
+    // assert
+    QCOMPARE(signal_spy.count(), 0);
+}
+
+void ControllerTest::verify_receiving_of_keepAlive_when_user_is_defined_after_6_seconds()
+{
+    // arrange
+    IM::Controller testee;
+    QSignalSpy signal_spy(&testee, SIGNAL(send_keepAlive(QString const &)));
+
+    testee.set_nickname(expected_nickname);
+
+    QTest::qWait(6000);
 
     // assert
     QCOMPARE(signal_spy.count(), 1);
@@ -26,6 +53,53 @@ void ControllerTest::invoke_send_keepAlive_sends_signal_send_keepAlive()
     const auto arguments = signal_spy.takeFirst();
     QCOMPARE(arguments.size(), 1);
     QCOMPARE(arguments.at(0).toString(), expected_nickname);
+}
+
+void ControllerTest::verify_receiving_of_keepAlive_when_user_is_defined_after_11_seconds()
+{
+    // arrange
+    IM::Controller testee;
+    QSignalSpy signal_spy(&testee, SIGNAL(send_keepAlive(QString const &)));
+
+    testee.set_nickname(expected_nickname);
+
+    QTest::qWait(11000);
+
+    // assert
+    QCOMPARE(signal_spy.count(), 2);
+
+    auto arguments = signal_spy.takeFirst();
+    QCOMPARE(arguments.size(), 1);
+    QCOMPARE(arguments.at(0).toString(), expected_nickname);
+
+    arguments = signal_spy.takeLast();
+    QCOMPARE(arguments.size(), 1);
+    QCOMPARE(arguments.at(0).toString(), expected_nickname);
+}
+
+void ControllerTest::verify_stop_receiving_of_keepAlive_when_user_is_deleted()
+{
+    // arrange
+    IM::Controller testee;
+    QSignalSpy signal_spy(&testee, SIGNAL(send_keepAlive(QString const &)));
+
+    testee.set_nickname(expected_nickname);
+
+    QTest::qWait(6000);
+
+    // assert
+    QCOMPARE(signal_spy.count(), 1);
+
+    auto arguments = signal_spy.takeFirst();
+    QCOMPARE(arguments.size(), 1);
+    QCOMPARE(arguments.at(0).toString(), expected_nickname);
+
+    testee.set_nickname("");
+
+    QTest::qWait(6000);
+
+    // assert
+    QCOMPARE(signal_spy.count(), 0);
 }
 
 void ControllerTest::invoke_send_message_sends_signal_send_message()

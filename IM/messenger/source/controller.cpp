@@ -3,13 +3,18 @@
 namespace IM {
 
 Controller::Controller() :
-    _nickname("")
+    _nickname(""),
+    timerKeepAlive(NULL)
 {
+    timerKeepAlive = new QTimer(this);
+    connect(timerKeepAlive, SIGNAL(timeout()), this, SLOT(invoke_send_keepAlive()));
+    timerKeepAlive->start(5000);
 }
 
 void Controller::invoke_send_keepAlive()
 {
-    emit send_keepAlive(_nickname);
+    if (_nickname.isEmpty() == false)
+        emit send_keepAlive(_nickname);
 }
 
 void Controller::invoke_send_message(const QString & message)
