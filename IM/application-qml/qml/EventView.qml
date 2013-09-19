@@ -52,5 +52,10 @@ Rectangle {
             rightMargin: 20
         }
 
+        onClicked: {
+            submit_hostEvent(createToolbar.eventTitle)
+            console.debug("Create new event: ", createToolbar.eventTitle)
+        }
+
     }
 }

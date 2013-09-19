@@ -30,13 +30,13 @@ Item {
         }
 
         function test_the_button_has_a_property_button_text() {
-            var expected_text = "Text"
-            testee.button_text = expected_text;
-            compare(testee.button_text, expected_text);
+            var expected_text = ""
+            testee.btnText = expected_text;
+            compare(testee.btnText, expected_text);
         }
 
         function test_clicking_the_button_sends_signal_buttonClicked() {
-            spy.signalName = "buttonClicked";
+            spy.signalName = "clicked";
             verify(spy.valid);
 
             mouseClick(testee, 5, 5);
