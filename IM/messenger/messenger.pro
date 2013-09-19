@@ -11,7 +11,8 @@ SOURCES += \
     source/communication.cpp \
     source/udp_socket.cpp \
     source/messagemodel.cpp \
-    source/usermodel.cpp
+    source/usermodel.cpp \
+    source/eventmodel.cpp
 
 HEADERS += \
     include/messenger/controller.h \
@@ -19,7 +20,8 @@ HEADERS += \
     include/messenger/iudp_socket.h \
     include/messenger/udp_socket.h \
     include/messenger/messagemodel.h \
-    include/messenger/usermodel.h
+    include/messenger/usermodel.h \
+    include/messenger/eventmodel.h
 
 unix: QMAKE_CXXFLAGS_DEBUG += -fprofile-arcs -ftest-coverage
 
