@@ -8,10 +8,10 @@ CONFIG += staticlib
 INCLUDEPATH += include
 
 SOURCES += \
-    source/application-qml.cpp \
+    source/application-qml.cpp
 
 HEADERS += \
-    include/application-qml/application-qml.h \
+    include/application-qml/application-qml.h
 
 OTHER_FILES += \
     qml/main.qml \
