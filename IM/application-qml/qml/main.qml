@@ -4,10 +4,21 @@ Rectangle {
     width: 480
     height: 800
 
-    SendMessage {
-        onSubmit: controller.invoke_send_message(message);
-        anchors.fill: parent
-        anchors.margins: 3
+    Column {
+//        anchors.fill: parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+
+        EventView {
+
+
+        }
+
+//        SendMessage {
+////            onSubmit: controller.invoke_send_message(message);
+//////            anchors.fill: parent
+//////            anchors.margins: 3
+//        }
     }
 }
 

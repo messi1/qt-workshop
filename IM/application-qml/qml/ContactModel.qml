@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
 ListModel {
+    objectName: "msgHistoryModel"
     ListElement {
         name: "Bill Smith"
         number: "555 3264"

@@ -2,8 +2,7 @@ import QtQuick 2.0
 
 Rectangle {
     id: root
-    width: 480
-    height: 400
+    anchors.fill: parent
 
     EventList {
         id: eventList

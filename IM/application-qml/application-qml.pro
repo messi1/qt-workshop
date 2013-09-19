@@ -20,11 +20,10 @@ OTHER_FILES += \
     qml/EventList.qml \
     qml/Event.qml \
     qml/EventView.qml \
-    qml/CreateEvent.qml
-    qml/Common/Button.qml \
-    qml/Common/TextBox.qml \
-    qml/Common/AppListView.qml \
-    qml/Common/ContactModel.qml
+    qml/CreateEvent.qml \
+    qml/TextBox.qml \
+    qml/ContactModel.qml \
+    qml/AppListView.qml
 
 RESOURCES += \
     application-qml.qrc

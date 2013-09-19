@@ -1,15 +1,19 @@
 import QtQuick 2.0
 
 Rectangle {
+    id: mainRect
     width: 180; height: 200
 
     Component {
         id: contactDelegate
         Item {
-            width: 180; height: 40
+            width: mainRect.width
+            height: 40
+
             Column {
                 Text { text: '<b>Name:</b> ' + name }
                 Text { text: '<b>Number:</b> ' + number }
+                spacing: 10
             }
             MouseArea {
                 id: mouse_area1
@@ -26,7 +30,7 @@ Rectangle {
         anchors.fill: parent
         model: ContactModel {}
         delegate: contactDelegate
-        highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+        highlight: Rectangle { color: "lightsteelblue"; radius: 4}
         focus: true
         topMargin: 5
         leftMargin: 5

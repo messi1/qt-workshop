@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import "Common"
 
 Rectangle {
     width: 480

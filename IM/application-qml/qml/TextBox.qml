@@ -71,7 +71,8 @@ FocusScope {
         onClicked: { focusScope.focus = true; Qt.inputMethod.show(); }
     }
 
-    TextInput {
+    TextEdit {
+//    TextInput {
         id: textInput
         objectName: "id_message_input"
         anchors { left: parent.left; leftMargin: 8; right: clear.left; rightMargin: 10; verticalCenter: parent.verticalCenter }
@@ -80,6 +81,7 @@ FocusScope {
 
         font.pixelSize: 27
         font.family: "OpenSymbol"
+//        wrapMode: "WordWrap"
     }
 
     Image {
