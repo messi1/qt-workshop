@@ -21,5 +21,5 @@ script:
 
 after_success:
   - cd ..
-  - coveralls -e /usr/include -e IM/unit-tests -e IM/unit-tests-cpp -e IM/unit-tests-uic -e IM/unit-tests-qml -e build/unit-tests -e build/unit-tests-cpp -e build/unit-tests-uic -e build/unit-tests-qml
+  - coveralls -e /usr/include -e IM/unit-tests  -e IM/unit-tests-qml -e build/unit-tests -e build/unit-tests-qml
 
