@@ -43,6 +43,7 @@ import QtQuick 2.0
 FocusScope {
     id: focusScope
     width: 250; height: 28
+    property alias id_message_input: textInput.text
 
     BorderImage {
         source: "images/lineedit-bg.png"

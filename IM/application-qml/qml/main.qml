@@ -14,11 +14,11 @@ Rectangle {
 
         }
 
-//        SendMessage {
-////            onSubmit: controller.invoke_send_message(message);
-//////            anchors.fill: parent
-//////            anchors.margins: 3
-//        }
+        SendMessage {
+            onSubmit: controller.invoke_send_message(message);
+////            anchors.fill: parent
+////            anchors.margins: 3
+        }
     }
 }
 

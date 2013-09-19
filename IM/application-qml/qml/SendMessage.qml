@@ -25,6 +25,7 @@ Rectangle {
         height: 60
 
         TextBox {
+            id: msgBox
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: id_send_button.left
@@ -44,9 +45,9 @@ Rectangle {
             btnText: "send"
 
             onClicked: {
-                if(id_message_input.text.length > 0) {
-                    submit(id_message_input.text);
-                    id_message_input.text = "";
+                if(msgBox.id_message_input.length > 0) {
+                    submit(msgBox.id_message_input);
+                    msgBox.id_message_input = "";
                 }
             }
         }
