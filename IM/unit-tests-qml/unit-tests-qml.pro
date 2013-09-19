@@ -14,5 +14,6 @@ SOURCES += \
 OTHER_FILES += \
     utils.js \
     tst_button.qml \
-    tst_send_message.qml
+    tst_send_message.qml \
+    tst_createEvent.qml
 
