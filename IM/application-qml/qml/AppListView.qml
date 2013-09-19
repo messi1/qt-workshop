@@ -32,7 +32,7 @@ Rectangle {
         id: listview
         anchors.fill: parent
         model: messageModel
-        delegate: Text { text: "Message" + message } //contactDelegate
+        delegate: Text { text: "Message: " + nickname + ", " + message }
         highlight: Rectangle { color: "lightsteelblue"; radius: 4}
         focus: true
         topMargin: 5
