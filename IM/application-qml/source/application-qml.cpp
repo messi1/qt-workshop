@@ -36,6 +36,7 @@ int Application::execute(int argc, char * argv[])
 
     Controller* controller = new Controller;
     view.engine()->rootContext()->setContextProperty("controller", controller);
+    QObject::connect(controller, SIGNAL(before_change_nickname(QString)), &userModel, SLOT(removeUser(QString)));
 
     UdpSocket udpSocket;
     Communication *communication = new Communication(&udpSocket);
