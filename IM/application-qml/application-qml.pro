@@ -16,7 +16,10 @@ HEADERS += \
 OTHER_FILES += \
     qml/main.qml \
     qml/Button.qml \
-    qml/SendMessage.qml
+    qml/SendMessage.qml \
+    qml/EventList.qml \
+    qml/Event.qml \
+    qml/EventView.qml
 
 RESOURCES += \
     application-qml.qrc
