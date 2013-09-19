@@ -1,52 +1,53 @@
 import QtQuick 2.0
+import "Common"
 
 Rectangle {
     anchors.fill: parent
 
-    anchors.margins: 2
-
     signal submit(string message)
 
-    Rectangle {
+    AppListView {
+        color: "white"
+        border.width: 1
+        border.color: "gray"
+        radius: 4
         anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: id_send_button.left
-        height: parent.height
-
-        anchors.rightMargin: 2
-
-        border { color: "black"; width: 1 }
-
-        TextInput {
-            id: id_message_input
-            objectName: "id_message_input"
-
-            anchors.fill: parent
-
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-            clip: true
-
-            selectByMouse: true
-        }
+        anchors.bottom: msgEnterFieldBtn.top
+        anchors.bottomMargin: 3
+        width: parent.width
     }
 
-    Button {
-        id: id_send_button
-        objectName: "id_send_button"
 
-        anchors.top: parent.top
-        anchors.right:  parent.right
+    Item {
+        id: msgEnterFieldBtn
+        anchors.bottom: parent.bottom
+        width: parent.width
+        height: 60
 
-        width: 64
-        height: parent.height
+        TextBox {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: id_send_button.left
+            anchors.rightMargin: 3
+            height: parent.height
+        }
 
-        button_text: "send"
+        Button {
+            id: id_send_button
+            objectName: "id_send_button"
+            width: 100
+            height: parent.height-2
+            anchors.top: parent.top
+            anchors.right:  parent.right
+            anchors.topMargin: 1
 
-        onButtonClicked: {
-            if(id_message_input.text.length > 0) {
-                submit(id_message_input.text);
-                id_message_input.text = "";
+            btnText: "send"
+
+            onClicked: {
+                if(id_message_input.text.length > 0) {
+                    submit(id_message_input.text);
+                    id_message_input.text = "";
+                }
             }
         }
     }
