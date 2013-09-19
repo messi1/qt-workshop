@@ -19,7 +19,7 @@
         <file alias="images/BBV_Logo.png">qml/images/BBV_Logo.png</file>
         <file alias="InfoView.qml">qml/InfoView.qml</file>
         <file alias="images/info.png">qml/images/info.png</file>
-        <file>qml/images/check.svg</file>
-        <file>qml/images/clear.svg</file>
+        <file alias="images/clear2.png">qml/images/clear2.png</file>
+        <file alias="images/check2.png">qml/images/check2.png</file>
     </qresource>
 </RCC>
