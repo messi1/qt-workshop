@@ -11,8 +11,8 @@ Rectangle {
             height: 40
 
             Column {
-                Text { text: '<b>Name:</b> ' + name }
-                Text { text: '<b>Number:</b> ' + number }
+                Text { text: '<b>Nickname:</b> ' + nickname }
+                Text { text: '<b>Message:</b> ' + message }
                 spacing: 10
             }
             MouseArea {
@@ -20,7 +20,10 @@ Rectangle {
                 z: 1
                 hoverEnabled: false
                 anchors.fill: parent
-                onClicked: {listview.currentIndex = index}
+                onClicked:
+                {
+                    listview.currentIndex = index
+                }
             }
         }
     }
@@ -28,8 +31,8 @@ Rectangle {
     ListView {
         id: listview
         anchors.fill: parent
-        model: ContactModel {}
-        delegate: contactDelegate
+        model: messageModel
+        delegate: Text { text: "Message" + message } //contactDelegate
         highlight: Rectangle { color: "lightsteelblue"; radius: 4}
         focus: true
         topMargin: 5
