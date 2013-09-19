@@ -1,10 +1,17 @@
 #include <QDataStream>
 #include "messenger/eventmodel.h"
 
-EventObject::EventObject(const QString &eventname, QObject *parent)
-    : m_eventname(eventname)
+EventObject::EventObject(const QString& nickname, const QString &eventname)
+    : m_nickname(nickname)
+    , m_eventname(eventname)
 {
 }
+
+QString EventObject::nickname() const
+{
+    return m_nickname;
+}
+
 
 QString EventObject::eventname() const
 {
@@ -19,13 +26,14 @@ EventModel::EventModel(QObject *parent) :
 
 int EventModel::rowCount(const QModelIndex& parent) const
 {
+    Q_UNUSED(parent);
     return m_EventList.count();
 }
 
-void EventModel::addEvent(const QString &eventname)
+void EventModel::addEvent(const QString& nickname, const QString &eventname)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    m_EventList.push_back(new EventObject(eventname));
+    m_EventList.push_back(new EventObject(nickname, eventname));
     endInsertRows();
 }
 

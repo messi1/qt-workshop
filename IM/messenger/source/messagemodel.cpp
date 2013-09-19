@@ -1,7 +1,7 @@
 #include <QDataStream>
 #include "messenger/messagemodel.h"
 
-MessageObject::MessageObject(const QString &nickname, const QString &message, QObject *parent)
+MessageObject::MessageObject(const QString &nickname, const QString &message)
     : m_nickname(nickname)
     , m_message(message)
 {
@@ -27,6 +27,7 @@ MessageModel::MessageModel(QObject *parent) :
 
 int MessageModel::rowCount(const QModelIndex& parent) const
 {
+    Q_UNUSED(parent);
     return m_MessageList.count();
 }
 

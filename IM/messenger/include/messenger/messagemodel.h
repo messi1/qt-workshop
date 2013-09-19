@@ -10,7 +10,7 @@ class MessageObject
 {
 
 public:
-    MessageObject(const QString &nickname, const QString &message, QObject *parent=0);
+    MessageObject(const QString &nickname, const QString &message);
 
     QString nickname() const;
     QString message() const;

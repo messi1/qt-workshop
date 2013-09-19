@@ -11,11 +11,13 @@ class EventObject
 {
 
 public:
-    EventObject(const QString &eventname, QObject *parent=0);
+    EventObject(const QString& nickname, const QString &eventname);
 
+    QString nickname() const;
     QString eventname() const;
 
 private:
+    QString m_nickname;
     QString m_eventname;
 };
 
@@ -32,7 +34,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
 
 public slots:
-    void addEvent(const QString &eventname);
+    void addEvent(const QString & nickname, const QString &eventname);
 
 protected:
     QHash<int, QByteArray> roleNames() const;
