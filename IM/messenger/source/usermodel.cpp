@@ -12,6 +12,7 @@ QString UserObject::nickname() const
     return m_nickname;
 }
 
+
 void UserObject::resetTimout()
 {
     m_timout = 7;

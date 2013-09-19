@@ -22,7 +22,7 @@ Rectangle {
         width: parent.width
         height: 317
         model: messageModel
-        delegate: Text { text: nickname + ": " + message; color: "white"; font.pixelSize: 20; font.family: "OpenSymbol"}
+        delegate: Text { text: nickname + ": " + message; color: if(nickname == controller.get_nickname()) return "yellow"; else return "white"; font.pixelSize: 20; font.family: "OpenSymbol"}
     }
 
 

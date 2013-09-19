@@ -62,7 +62,7 @@ Rectangle {
             radius: 4
 
             model: userModel
-            delegate: Text { text: "[" + nickname + "]"; color: "white"; font.pixelSize: 20; font.family: "OpenSymbol"}
+            delegate: Text { text: "[" + nickname + "]"; color: if(nickname == controller.get_nickname()) return "yellow"; else return "white"; font.pixelSize: 20; font.family: "OpenSymbol"}
         }
 
         Text {

@@ -37,7 +37,7 @@ Rectangle {
         anchors.fill: parent
 
         model: messageModel
-        delegate: Text { text: nickname + ": " + message }
+        delegate: Text { text: nickname + ": " + message;}
 
         highlight: Rectangle { color: "lightsteelblue"; radius: 4}
         focus: true
