@@ -29,6 +29,8 @@ signals:
     void send_participateInEvent (const QString & nickname, QString const & title);
     void send_callOutEvent(const QString & nickname, QString const & title);
 
+    void receive_message(const QString & nickname, QString const & message);
+
 private slots:
     void invoke_send_keepAlive();
 
