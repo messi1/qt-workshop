@@ -19,7 +19,8 @@ OTHER_FILES += \
     qml/SendMessage.qml \
     qml/EventList.qml \
     qml/Event.qml \
-    qml/EventView.qml
+    qml/EventView.qml \
+    qml/CreateEvent.qml
     qml/Common/Button.qml \
     qml/Common/TextBox.qml \
     qml/Common/AppListView.qml \

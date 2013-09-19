@@ -2,7 +2,8 @@ import QtQuick 2.0
 import "Common"
 
 Rectangle {
-    anchors.fill: parent
+    width: 480
+    height: 400
 
     signal submit(string message)
 

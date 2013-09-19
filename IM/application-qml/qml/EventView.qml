@@ -18,10 +18,9 @@ Rectangle {
         }
     }
 
-    Rectangle {
+    CreateEvent {
         id: createToolbar
         height: 50
-        color: "yellow"
         anchors {
             bottom: root.bottom
             bottomMargin: 20
@@ -30,5 +29,6 @@ Rectangle {
             leftMargin: 20
             rightMargin: 20
         }
+
     }
 }
