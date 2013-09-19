@@ -1,20 +1,48 @@
 import QtQuick 2.0
 
 Rectangle {
-    width: 480
-    height: 400
+    id: sendMessage
+    width: 470
+    height: 390
+
 
     signal submit(string message)
 
-    AppListView {
-        color: "white"
+    Component {
+        id: contactDelegate
+        Item {
+            width: sendMessage.width
+            height: 40
+
+            Row {
+                Text { text: '<b>Name:</b> ' + name }
+                Text { text: '<b>Number:</b> ' + number }
+                spacing: 10
+            }
+            MouseArea {
+                id: mouse_area1
+                z: 1
+                hoverEnabled: false
+                anchors.fill: parent
+                onClicked: {listview.currentIndex = index}
+            }
+        }
+    }
+
+    MessageListView {
+        id: listview
+
+        color: "red"
         border.width: 1
         border.color: "gray"
         radius: 4
-        anchors.top: parent.top
+//        anchors.top: sendMessage.top
         anchors.bottom: msgEnterFieldBtn.top
-        anchors.bottomMargin: 3
+//        anchors.bottomMargin: 13
         width: parent.width
+        height: 317
+        delegate: contactDelegate
+        model: ContactModel {}
     }
 
 

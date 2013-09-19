@@ -13,5 +13,9 @@
         <file alias="images/lineedit-bg.png">qml/images/lineedit-bg.png</file>
         <file alias="images/lineedit-bg-focus.png">qml/images/lineedit-bg-focus.png</file>
         <file alias="Button.qml">qml/Button.qml</file>
+        <file alias="SettingsView.qml">qml/SettingsView.qml</file>
+        <file alias="images/settings.png">qml/images/settings.png</file>
+        <file alias="images/panel_bg.png">qml/images/panel_bg.png</file>
+        <file alias="MessageListView.qml">qml/MessageListView.qml</file>
     </qresource>
 </RCC>
