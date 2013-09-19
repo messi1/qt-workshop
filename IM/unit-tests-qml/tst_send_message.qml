@@ -54,7 +54,7 @@ Item {
             var send_button = Utils.get_item(testee, "id_send_button");
             verify(send_button);
 
-            spy.signalName = "submit";
+            spy.signalName = "submit_sendMessage";
 
             mouseClick(send_button, 5, 5);
 
@@ -83,7 +83,7 @@ Item {
             var send_button = Utils.get_item(testee, "id_send_button");
             verify(send_button);
 
-            spy.signalName = "submit";
+            spy.signalName = "submit_sendMessage";
 
             mouseClick(send_button, 5, 5);
 

@@ -5,6 +5,8 @@ Rectangle {
     width: 480
     height: 400
 
+    signal submit_hostEvent(string title)
+
     EventList {
         id: eventList
         anchors {
@@ -28,6 +30,11 @@ Rectangle {
             right: root.right
             leftMargin: 20
             rightMargin: 20
+        }
+
+        onClicked: {
+            submit_hostEvent(createToolbar.eventTitle)
+            console.debug("Create new event: ", createToolbar.eventTitle)
         }
 
     }

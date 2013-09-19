@@ -14,11 +14,13 @@ void Controller::invoke_send_keepAlive()
 
 void Controller::invoke_send_message(const QString & message)
 {
+    qDebug("Received invoke_send_message event. Message = %s", message.toLatin1().data());
     emit send_message(_nickname, message);
 }
 
 void Controller::invoke_send_hostEvent(const QString & title)
 {
+    qDebug("Received invoke_send_hostEvent event. Event title = %s", title.toLatin1().data());
     emit send_hostEvent(_nickname, title);
 }
 

@@ -5,8 +5,13 @@ Item {
     width: 400
     height: 60
 
+    signal clicked()
+
+    property string eventTitle: ""
+
     TextBox {
-        id: eventName
+        id: newEventTitle
+        objectName: "id_newEventTitle"
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: createEventButton.left
@@ -16,7 +21,7 @@ Item {
 
     Button {
         id: createEventButton
-        objectName: "createEventButton"
+        objectName: "id_createEventButton"
         width: 100
         height: parent.height-2
         anchors.top: parent.top
@@ -25,11 +30,12 @@ Item {
 
         btnText: "create"
 
-        /*onClicked: {
-            if(eventName.text.length > 0) {
-                submit(eventName.text);
-                eventName.text = "";
+        onClicked: {
+            if(newEventTitle.text.length > 0) {
+                root.eventTitle = newEventTitle.text
+                root.clicked()
+                newEventTitle.text = "";
             }
-        }*/
+        }
     }
 }

@@ -4,7 +4,7 @@ Rectangle {
     width: 480
     height: 400
 
-    signal submit(string message)
+    signal submit_sendMessage(string message)
 
     AppListView {
         color: "white"
@@ -45,9 +45,9 @@ Rectangle {
             btnText: "send"
 
             onClicked: {
-                if(msgBox.id_message_input.length > 0) {
-                    submit(msgBox.id_message_input);
-                    msgBox.id_message_input = "";
+                if(msgBox.text.length > 0) {
+                    submit_sendMessage(msgBox.text);
+                    msgBox.text = "";
                 }
             }
         }

@@ -10,12 +10,13 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
 
         EventView {
+            onSubmit_hostEvent: controller.invoke_send_hostEvent(title)
 
 
         }
 
         SendMessage {
-            onSubmit: controller.invoke_send_message(message);
+            onSubmit_sendMessage: controller.invoke_send_message(message)
 ////            anchors.fill: parent
 ////            anchors.margins: 3
         }
