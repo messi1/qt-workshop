@@ -36,6 +36,7 @@ Item {
             var message_input = Utils.get_item(testee, "id_message_input");
             verify(message_input);
             message_input.focus = true;
+            mouseClick(message_input)
 
             for(var i in keys) {
                 keyClick(keys[i]);
