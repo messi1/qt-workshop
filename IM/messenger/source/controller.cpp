@@ -46,7 +46,10 @@ QString Controller::get_nickname()
 
 void Controller::set_nickname(const QString & nickname)
 {
+    timerKeepAlive->stop();
     _nickname = nickname;
+    invoke_send_keepAlive();
+    timerKeepAlive->start();
 }
 
 } // IM
