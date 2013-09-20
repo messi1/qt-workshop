@@ -3,13 +3,14 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QTimer>
+#include <QSettings>
 
 namespace IM {
 
 class Controller : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString setNickName READ get_nickname WRITE set_nickname)
+    Q_PROPERTY(QString setNickName READ get_nickname WRITE set_nickname NOTIFY nicknameChanged)
 
 public:
     Controller();
@@ -30,6 +31,7 @@ signals:
     void send_callOutEvent(const QString & nickname, QString const & title);
 
     void receive_message(const QString & nickname, QString const & message);
+    void nicknameChanged(QString&);
 
     void before_change_nickname(const QString &oldnickname);
 
@@ -40,6 +42,8 @@ private:
     QString _nickname;
 
     QTimer* timerKeepAlive;
+
+    QSettings settings;
 };
 
 } // IM

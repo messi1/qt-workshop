@@ -51,6 +51,8 @@ int Application::execute(int argc, char * argv[])
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl("qrc:/IM/main.qml"));
     view.show();
+    QString bla = controller->get_nickname();
+    emit controller->nicknameChanged(bla);
 
     return application.exec();
 }

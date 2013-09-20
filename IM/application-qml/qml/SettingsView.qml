@@ -119,6 +119,12 @@ Item {
                     }
                 }
 
+                Connections {
+                    target: controller
+                    onNicknameChanged: {
+                        nicknameInput.text = controller.setNickName
+                    }
+                }
             }
 
             Rectangle {

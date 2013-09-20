@@ -4,8 +4,16 @@ namespace IM {
 
 Controller::Controller() :
     _nickname(""),
-    timerKeepAlive(NULL)
+    timerKeepAlive(NULL),
+
+    settings("bbv", "messenger")
+    //settings()
 {
+//    QCoreApplication::setOrganizationName("bbv");
+//    QCoreApplication::setOrganizationDomain("bbv.ch");
+//    QCoreApplication::setApplicationName("Messenger");
+    _nickname = settings.value("nickname/name", "").toString();
+
     timerKeepAlive = new QTimer(this);
     connect(timerKeepAlive, SIGNAL(timeout()), this, SLOT(invoke_send_keepAlive()));
     timerKeepAlive->start(5000);
@@ -49,8 +57,12 @@ void Controller::set_nickname(const QString & nickname)
     timerKeepAlive->stop();
     emit(before_change_nickname(_nickname));
     _nickname = nickname;
+
     invoke_send_keepAlive();
     timerKeepAlive->start();
+
+    settings.setValue("nickname/name", _nickname);
+
 }
 
 } // IM
