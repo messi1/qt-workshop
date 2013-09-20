@@ -63,7 +63,6 @@ Rectangle {
             z: 2
         }
 
-
         Text {
             id: userTitleText
             text: qsTr("User List")
