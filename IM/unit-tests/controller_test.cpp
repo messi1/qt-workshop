@@ -15,8 +15,8 @@ void ControllerTest::verify_receiving_of_keepAlive_when_user_is_not_defined_afte
     IM::Controller testee;
     QSignalSpy signal_spy(&testee, SIGNAL(send_keepAlive(QString const &)));
 
+    // act
     testee.set_nickname("");
-
     QTest::qWait(6000);
 
     // assert
@@ -29,8 +29,8 @@ void ControllerTest::verify_receiving_of_keepAlive_when_user_is_defined_after_1_
     IM::Controller testee;
     QSignalSpy signal_spy(&testee, SIGNAL(send_keepAlive(QString const &)));
 
+    // act
     testee.set_nickname(expected_nickname);
-
     QTest::qWait(1000);
 
     // assert
@@ -43,8 +43,8 @@ void ControllerTest::verify_receiving_of_keepAlive_when_user_is_defined_after_6_
     IM::Controller testee;
     QSignalSpy signal_spy(&testee, SIGNAL(send_keepAlive(QString const &)));
 
+    // act
     testee.set_nickname(expected_nickname);
-
     QTest::qWait(6000);
 
     // assert
@@ -65,8 +65,8 @@ void ControllerTest::verify_stop_receiving_of_keepAlive_when_user_is_deleted()
     IM::Controller testee;
     QSignalSpy signal_spy(&testee, SIGNAL(send_keepAlive(QString const &)));
 
+    // act
     testee.set_nickname(expected_nickname);
-
     QTest::qWait(1000);
 
     // assert

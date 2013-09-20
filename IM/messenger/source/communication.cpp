@@ -105,20 +105,20 @@ void Communication::handle_recv_message(QByteArray& msg)
         break;
 
         case Command::Message:
-            emit receivedMessage(nickname, message );
+            emit receivedMessage(nickname, message);
         break;
 
         case Command::HostEvent:
             // Received event which will be hosted by
-            emit receivedHostEvent( nickname, message );
+            emit receivedHostEvent(nickname, message);
         break;
 
         case Command::ParticipateInEvent:
-            emit receivedParicipateInEvent( nickname, message );
+            emit receivedParicipateInEvent(nickname, message);
         break;
 
         case Command::CallOutEvent:
-            emit receivedCallOutEvent( nickname, message );
+            emit receivedCallOutEvent(nickname, message);
         break;
     }
 }
