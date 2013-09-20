@@ -46,13 +46,6 @@ int Application::execute(int argc, char * argv[])
     QObject::connect(communication, SIGNAL(receivedKeepAlive(QString)), &userModel, SLOT(addUser(QString)));
     QObject::connect(&udpSocket, SIGNAL(datagramReceived(QByteArray&)), communication, SLOT(handle_recv_message(QByteArray&)));
 
-//    QTimer keepAliveTimer;
-//    keepAliveTimer.setInterval(7000);
-//    keepAliveTimer.setSingleShot(false);
-
-//    connect(&keepAliveTimer, SIGNAL(timeout(), communication, SLOT(handle_send_keepAlive(controller->get_nickname()));
-
-
     view.connect(view.engine(), SIGNAL(quit()), SLOT(close()));
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl("qrc:/IM/main.qml"));

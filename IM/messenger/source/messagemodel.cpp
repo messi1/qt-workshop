@@ -51,11 +51,10 @@ QVariant MessageModel::data(const QModelIndex & index, int role) const {
 }
 
 
-//![0]
 QHash<int, QByteArray> MessageModel::roleNames() const {
     QHash<int, QByteArray> roles;
     roles[NicknameRole] = "nickname";
     roles[MessageRole] = "message";
     return roles;
 }
-//![0]
+
