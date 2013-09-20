@@ -4,45 +4,25 @@ Rectangle {
     id: sendMessage
     width: 470
     height: 390
+    color: "transparent"
 
 
     signal submit_sendMessage(string message)
 
-    Component {
-        id: contactDelegate
-        Item {
-            width: sendMessage.width
-            height: 40
-
-            Row {
-                Text { text: '<b>Name:</b> ' + name }
-                Text { text: '<b>Number:</b> ' + number }
-                spacing: 10
-            }
-            MouseArea {
-                id: mouse_area1
-                z: 1
-                hoverEnabled: false
-                anchors.fill: parent
-                onClicked: {listview.currentIndex = index}
-            }
-        }
-    }
-
-    MessageListView {
+    MyListView {
         id: listview
 
-        color: "red"
+        color: "#2d2d2d"
         border.width: 1
-        border.color: "gray"
+        border.color: "white"
         radius: 4
-//        anchors.top: sendMessage.top
+        anchors.top: parent.top
         anchors.bottom: msgEnterFieldBtn.top
-//        anchors.bottomMargin: 13
+        anchors.bottomMargin: 5
         width: parent.width
         height: 317
-        delegate: contactDelegate
-        model: ContactModel {}
+        model: messageModel
+        delegate: Text { text: nickname + ": " + message; color: "white"; font.pixelSize: 20; font.family: "OpenSymbol"}
     }
 
 
@@ -50,15 +30,17 @@ Rectangle {
         id: msgEnterFieldBtn
         anchors.bottom: parent.bottom
         width: parent.width
-        height: 60
+        height: 50
 
         TextBox {
             id: msgBox
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: id_send_button.left
-            anchors.rightMargin: 3
+            anchors.rightMargin: 5
             height: parent.height
+
+            onEnterPressed: { clearAndSendMessage() }
         }
 
         Button {
@@ -70,14 +52,17 @@ Rectangle {
             anchors.right:  parent.right
             anchors.topMargin: 1
 
-            btnText: "send"
+            btnText: qsTr("send")
 
-            onClicked: {
-                if(msgBox.text.length > 0) {
-                    submit_sendMessage(msgBox.text);
-                    msgBox.text = "";
-                }
-            }
+            onClicked: { clearAndSendMessage() }
+        }
+    }
+
+    function clearAndSendMessage()
+    {
+        if(msgBox.text.length > 0) {
+            submit_sendMessage(msgBox.text);
+            msgBox.text = "";
         }
     }
 }

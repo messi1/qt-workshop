@@ -4,6 +4,7 @@ Rectangle {
     id: root
     width: 470
     height: 350
+    color: "transparent"
 
     Component {
         id: contactDelegate
@@ -28,16 +29,16 @@ Rectangle {
 
     AppListView {
         id: eventList
-        color: "red"
+        color: "#2d2d2d"
         border.width: 1
-        border.color: "gray"
+        border.color: "white"
         radius: 4
         anchors.top: root.top
         anchors.bottom: createToolbar.top
         anchors.bottomMargin: 3
         width: parent.width
         delegate: contactDelegate
-        model: ContactModel {}
+//        model: ContactModel {}
     }
 
     CreateEvent {
@@ -45,11 +46,8 @@ Rectangle {
         height: 50
         anchors {
             bottom: root.bottom
-            bottomMargin: 20
             left: root.left
             right: root.right
-            leftMargin: 20
-            rightMargin: 20
         }
 
         onClicked: {

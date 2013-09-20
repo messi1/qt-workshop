@@ -18,7 +18,7 @@ void CommunicationTest::handle_send_keepAlive_broadcasts_the_keepAlive_over_udp(
     QSignalSpy writeDatagram(&udp_socket, SIGNAL(called_writeDatagram(QByteArray const &, QHostAddress const &, quint16)));
 
     // act
-    IM::Communication testee(udp_socket);
+    IM::Communication testee(&udp_socket);
     testee.handle_send_keepAlive(expected_nickname);
 
     // assert
@@ -50,7 +50,7 @@ void CommunicationTest::handle_send_message_broadcasts_the_message_over_udp()
     QSignalSpy writeDatagram(&udp_socket, SIGNAL(called_writeDatagram(QByteArray const &, QHostAddress const &, quint16)));
 
     // act
-    IM::Communication testee(udp_socket);
+    IM::Communication testee(&udp_socket);
     testee.handle_send_message(expected_nickname, expected_message);
 
     // assert
@@ -84,7 +84,7 @@ void CommunicationTest::handle_send_hostEvent_broadcasts_the_hostEvent_over_udp(
     QSignalSpy writeDatagram(&udp_socket, SIGNAL(called_writeDatagram(QByteArray const &, QHostAddress const &, quint16)));
 
     // act
-    IM::Communication testee(udp_socket);
+    IM::Communication testee(&udp_socket);
     testee.handle_send_hostEvent(expected_nickname, expected_titleEvent);
 
     // assert
@@ -119,7 +119,7 @@ void CommunicationTest::handle_send_partecipateInEvent_broadcasts_the_hostEvent_
     QSignalSpy writeDatagram(&udp_socket, SIGNAL(called_writeDatagram(QByteArray const &, QHostAddress const &, quint16)));
 
     // act
-    IM::Communication testee(udp_socket);
+    IM::Communication testee(&udp_socket);
     testee.handle_send_participateInEvent(expected_nickname, expected_titleEvent);
 
     // assert
@@ -153,7 +153,7 @@ void CommunicationTest::handle_send_callOutEvent_broadcasts_the_hostEvent_over_u
     QSignalSpy writeDatagram(&udp_socket, SIGNAL(called_writeDatagram(QByteArray const &, QHostAddress const &, quint16)));
 
     // act
-    IM::Communication testee(udp_socket);
+    IM::Communication testee(&udp_socket);
     testee.handle_send_callOutEvent(expected_nickname, expected_titleEvent);
 
     // assert

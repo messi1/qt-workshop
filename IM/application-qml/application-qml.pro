@@ -22,9 +22,9 @@ OTHER_FILES += \
     qml/EventView.qml \
     qml/CreateEvent.qml \
     qml/TextBox.qml \
-    qml/ContactModel.qml \
     qml/AppListView.qml \
-    qml/MessageListView.qml
+    qml/SettingsView.qml \
+    qml/MyListView.qml
 
 RESOURCES += \
     application-qml.qrc

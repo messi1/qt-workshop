@@ -8,8 +8,8 @@ Rectangle
     width: 106
     height: 57
     color: "white"
-    border.width: 1
-    border.color: "gray"
+    border.width: 2
+    border.color: "#4e4e4e"
     radius: 4
 
     objectName: "btn_exit"
@@ -34,6 +34,6 @@ Rectangle
         anchors.fill: parent
         onClicked: { button.clicked();}
         onEntered: { button.color = "lightgray"; buttonText.color = "black"; border.color = "black"}
-        onExited:  { button.color = "white";  buttonText.color = "gray"; border.color = "gray" }
+        onExited:  { button.color = "white";  buttonText.color = "#4e4e4e"; border.color = "#4e4e4e" }
     }
 }

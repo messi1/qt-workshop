@@ -1,3 +1,4 @@
+#include <QDataStream>
 #include "messenger/messagemodel.h"
 
 MessageObject::MessageObject(const QString &nickname, const QString &message, QObject *parent)

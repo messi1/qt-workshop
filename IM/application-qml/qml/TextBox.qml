@@ -46,6 +46,8 @@ FocusScope {
 
     property alias text: textInput.text
 
+    signal enterPressed()
+
     BorderImage {
         source: "images/lineedit-bg.png"
         width: parent.width; height: parent.height
@@ -73,17 +75,24 @@ FocusScope {
         onClicked: { focusScope.focus = true; Qt.inputMethod.show(); }
     }
 
-    TextEdit {
-//    TextInput {
+//    TextEdit {
+    TextInput {
         id: textInput
         objectName: "id_message_input"
         anchors { left: parent.left; leftMargin: 8; right: clear.left; rightMargin: 10; verticalCenter: parent.verticalCenter }
         focus: true
         selectByMouse: true
+        color: "black"
 
         font.pixelSize: 27
         font.family: "OpenSymbol"
 //        wrapMode: "WordWrap"
+        Keys.onPressed: {
+            if(event.key==Qt.Key_Escape || event.key==Qt.Key_Enter || event.key==Qt.Key_Return)
+            {
+                enterPressed();
+            }
+        }
     }
 
     Image {

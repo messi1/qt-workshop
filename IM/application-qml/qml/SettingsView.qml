@@ -11,6 +11,7 @@ Item {
         isShown = true;
         hideAnimation.stop();
         showAnimation.restart();
+        nicknameInput.focus=true;
     }
     function hide() {
         isShown = false;
@@ -45,11 +46,13 @@ Item {
 
     Image {
         id: settingsIcon
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: 4
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 4
         source: "images/settings.png"
         opacity: backgroundItem.opacity + 0.4
+        scale: 0.6
         MouseArea {
             anchors.fill: parent
             anchors.margins: -20
@@ -88,30 +91,31 @@ Item {
 
             Text{
                 id: nickText
-                text:"Nickname:"
+                text: qsTr("Nickname")
                 anchors.left: parent.left
-                anchors.leftMargin: 10
+//                anchors.leftMargin: 10
                 color: "white"
                 font.family: "OpenSymbol"
 
             }
             TextInput{
-                anchors.left: nickText.right
-                anchors.leftMargin: 5
+                id: nicknameInput
+                anchors.horizontalCenter: parent.horizontalCenter
+                color: "white"
+                height: 60
+                width: settingsContentColumn.width
+                font.family: "OpenSymbol"
+                font.pixelSize: 27
+
+                onTextChanged: controller.setNickName=nicknameInput.text
+
+                Keys.onPressed: {
+                    if(event.key==Qt.Key_Escape|| event.key==Qt.Key_Return)
+                        hide()
+                }
+
             }
 
-            // Exposure min=1 max=1048575 step=1 default=1943 value=56
-//            Slider
-//            {
-//                height: 60
-//                width: settingsContentColumn.width
-//                minimum: 1
-//                value: 766
-//                maximum: 15000
-//                bgColor: "red"
-//                objectName: "slider_exposure"
-//                anchors.horizontalCenter: parent.horizontalCenter
-//            }
             Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width - 32
@@ -119,149 +123,8 @@ Item {
                 color: "#404040"
             }
 
-            //-------------------------------------------------
-//            Text{
-//                text:"Gain Red:"
-//                anchors.left: parent.left
-//                anchors.leftMargin: 10
-//                color: "white"
-//                font.family: "OpenSymbol"
-//            }
-//            // Gain min=8 max=1024 step=1 default=8 value=16
-////            Slider
-////            {
-////                height: 60
-////                width: parent.width
-////                minimum: 8
-////                value: 32
-////                maximum: 255
-////                objectName: "slider_gain_red"
-////            }
-//            Rectangle {
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                width: parent.width - 32
-//                height: 1
-//                color: "#404040"
-//            }
+//-------------------------------------------------
 
-//            //-------------------------------------------------
-//            Text{
-//                text:"Gain Green:"
-//                anchors.left: parent.left
-//                anchors.leftMargin: 10
-//                color: "white"
-//                font.family: "OpenSymbol"
-//            }
-//            // Gain min=8 max=1024 step=1 default=8 value=16
-////            Slider
-////            {
-////                height: 60
-////                width: parent.width
-////                minimum: 8
-////                value: 32*(3/4)
-////                maximum: 255
-////                objectName: "slider_gain_green"
-////            }
-//            Rectangle {
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                width: parent.width - 32
-//                height: 1
-//                color: "#404040"
-//            }
-
-//            //-------------------------------------------------
-//            Text{
-//                text:"Gain Blue:"
-//                anchors.left: parent.left
-//                anchors.leftMargin: 10
-//                color: "white"
-//                font.family: "OpenSymbol"
-//            }
-//            // Gain min=8 max=1024 step=1 default=8 value=16
-////            Slider
-////            {
-////                height: 60
-////                width: parent.width
-////                minimum: 8
-////                value: 32
-////                maximum: 255
-////                objectName: "slider_gain_blue"
-////            }
-//            Rectangle {
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                width: parent.width - 32
-//                height: 1
-//                color: "#404040"
-//            }
-
-//            //-------------------------------------------------
-//            Text{
-//                text:"Brightness:"
-//                anchors.left: parent.left
-//                anchors.leftMargin: 10
-//                color: "white"
-//                font.family: "OpenSymbol"
-//            }
-//            // brightness (int)    : min=0 max=255 step=1 default=0 value=4 flags=slider
-////            Slider
-////            {
-////                height: 60
-////                width: parent.width
-////                minimum: 0
-////                value: 0
-////                maximum: 255
-////                objectName: "slider_brightness"
-////            }
-//            Rectangle {
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                width: parent.width - 32
-//                height: 1
-//                color: "#404040"
-//            }
-
-//            //-------------------------------------------------
-//            Text{
-//                text:"Contrast:"
-//                anchors.left: parent.left
-//                anchors.leftMargin: 10
-//                color: "white"
-//                font.family: "OpenSymbol"
-//            }
-//            // contrast (int)    : min=0 max=255 step=1 default=16 value=64 flags=slider
-////            Slider
-////            {
-////                height: 60
-////                width: parent.width
-////                minimum: 0
-////                value: 16
-////                maximum: 255
-////                objectName: "slider_contrast"
-////            }
-//            Rectangle {
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                width: parent.width - 32
-//                height: 1
-//                color: "#404040"
-//            }
-
-//            //-------------------------------------------------
-//            Text{
-//                text:"Test pattern:"
-//                anchors.left: parent.left
-//                anchors.leftMargin: 10
-//                color: "white"
-//                font.family: "OpenSymbol"
-//            }
-//            // Testpattern min=0 max=9 default=0 value=9
-////            Slider
-////            {
-////                height: 60
-////                width: parent.width
-////                minimum: 0
-////                value: 0
-////                maximum: 9
-////                objectName: "slider_testpattern"
-////            }
         }
     }
 }

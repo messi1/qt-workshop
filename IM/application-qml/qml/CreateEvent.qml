@@ -22,13 +22,13 @@ Item {
     Button {
         id: createEventButton
         objectName: "id_createEventButton"
-        width: 100
+        width: 110
         height: parent.height-2
         anchors.top: parent.top
         anchors.right:  parent.right
         anchors.topMargin: 1
 
-        btnText: "create"
+        btnText: qsTr("create")
 
         onClicked: {
             if(newEventTitle.text.length > 0) {

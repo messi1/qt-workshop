@@ -39,6 +39,11 @@ void Controller::invoke_send_callOutEvent(const QString & title)
     emit send_callOutEvent(_nickname, title);
 }
 
+QString Controller::get_nickname()
+{
+    return _nickname;
+}
+
 void Controller::set_nickname(const QString & nickname)
 {
     _nickname = nickname;

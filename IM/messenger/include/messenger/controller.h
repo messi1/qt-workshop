@@ -9,12 +9,14 @@ namespace IM {
 class Controller : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString setNickName READ get_nickname WRITE set_nickname)
+
 public:
     Controller();
 
-    void set_nickname(const QString & nickname);
-
 public slots:
+    QString get_nickname();
+    void set_nickname(const QString & nickname);
     void invoke_send_message(const QString & message);
     void invoke_send_hostEvent(const QString & title);
     void invoke_send_participateInEvent (const QString & title);
