@@ -34,7 +34,7 @@ void ControllerTest::verify_receiving_of_keepAlive_when_user_is_defined_after_1_
     QTest::qWait(1000);
 
     // assert
-    QCOMPARE(signal_spy.count(), 0);
+    QCOMPARE(signal_spy.count(), 1);
 }
 
 void ControllerTest::verify_receiving_of_keepAlive_when_user_is_defined_after_6_seconds()
@@ -46,24 +46,6 @@ void ControllerTest::verify_receiving_of_keepAlive_when_user_is_defined_after_6_
     testee.set_nickname(expected_nickname);
 
     QTest::qWait(6000);
-
-    // assert
-    QCOMPARE(signal_spy.count(), 1);
-
-    const auto arguments = signal_spy.takeFirst();
-    QCOMPARE(arguments.size(), 1);
-    QCOMPARE(arguments.at(0).toString(), expected_nickname);
-}
-
-void ControllerTest::verify_receiving_of_keepAlive_when_user_is_defined_after_11_seconds()
-{
-    // arrange
-    IM::Controller testee;
-    QSignalSpy signal_spy(&testee, SIGNAL(send_keepAlive(QString const &)));
-
-    testee.set_nickname(expected_nickname);
-
-    QTest::qWait(11000);
 
     // assert
     QCOMPARE(signal_spy.count(), 2);
@@ -85,7 +67,7 @@ void ControllerTest::verify_stop_receiving_of_keepAlive_when_user_is_deleted()
 
     testee.set_nickname(expected_nickname);
 
-    QTest::qWait(6000);
+    QTest::qWait(1000);
 
     // assert
     QCOMPARE(signal_spy.count(), 1);
@@ -183,4 +165,16 @@ void ControllerTest::invoke_send_callOutEvent_sends_signal_send_callOutEvent()
     QCOMPARE(arguments.at(1).toString(), expected_titleEvent);
 }
 
+void ControllerTest::verify_nickname_after_set_it()
+{
+    // arrange
+    IM::Controller testee;
 
+    testee.set_nickname(expected_nickname);
+
+    // act
+    QString nickname = testee.get_nickname();
+
+    // assert
+    QCOMPARE(nickname, expected_nickname);
+}
