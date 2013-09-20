@@ -19,6 +19,7 @@ Rectangle {
             color: "#4e4e4e"
             border.color: "black"
             height: 50
+            z:4
 
             Text {
                 id: titleText
@@ -33,11 +34,35 @@ Rectangle {
                 anchors.leftMargin: 5
             }
 
-            InfoView {
-                id: infoView
-                z: 5
-            }
+//            Rectangle {
+//                id: eventActivation
+//                color: "red"
+//                height: 30
+//                width: 100
+//                anchors.top: titleText.bottom
+//                anchors.right: parent.right
+//                radius: 3
+//                border.color: "black"
+//                border.width: 1
+
+//                z:-1
+//                MouseArea {
+//                    anchors.fill: eventActivation
+//                }
+//            }
         }
+        SlideWindow {
+            id: eventActivation
+            //                color: "red"
+            height: 30
+            width: 100
+//                winHeight: mainView -titleRect.x - titleRect.height
+            anchors.top: titleRect.bottom
+            anchors.topMargin: -2
+            anchors.right: titleRect.right
+            z: 2
+        }
+
 
         Text {
             id: userTitleText

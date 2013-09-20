@@ -24,7 +24,8 @@ OTHER_FILES += \
     qml/TextBox.qml \
     qml/AppListView.qml \
     qml/SettingsView.qml \
-    qml/MyListView.qml
+    qml/MyListView.qml \
+    qml/SlideWindow.qml
 
 RESOURCES += \
     application-qml.qrc
