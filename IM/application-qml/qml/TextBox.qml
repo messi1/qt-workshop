@@ -98,7 +98,7 @@ FocusScope {
     Image {
         id: clear
         anchors { right: parent.right; rightMargin: 10; verticalCenter: parent.verticalCenter }
-        source: "images/clear.png"
+        source: "images/clear.svg"
         opacity: 0
         scale: 2
 

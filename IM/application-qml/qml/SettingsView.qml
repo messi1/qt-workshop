@@ -107,11 +107,16 @@ Item {
                 font.family: "OpenSymbol"
                 font.pixelSize: 27
 
-                onTextChanged: controller.setNickName=nicknameInput.text
+                //onTextChanged: controller.setNickName=nicknameInput.text
 
                 Keys.onPressed: {
-                    if(event.key==Qt.Key_Escape|| event.key==Qt.Key_Return)
+                    if(event.key==Qt.Key_Escape) {
                         hide()
+                    }
+                    if(event.key==Qt.Key_Return) {
+                        controller.setNickName=nicknameInput.text
+                        hide()
+                    }
                 }
 
             }
