@@ -75,21 +75,21 @@ FocusScope {
         onClicked: { focusScope.focus = true; Qt.inputMethod.show(); }
     }
 
-//    TextEdit {
     TextInput {
         id: textInput
         objectName: "id_message_input"
-        anchors { left: parent.left; leftMargin: 8; right: clear.left; rightMargin: 10; verticalCenter: parent.verticalCenter }
+        anchors { /*top: parent.top; bottom: parent.bottom;*/ left: parent.left; leftMargin: 8; right: clear.left; rightMargin: 10; verticalCenter: parent.verticalCenter }
+//        height: parent.height
+        verticalAlignment: bottom
         focus: true
         selectByMouse: true
         color: "black"
-
-        font.pixelSize: 27
+        clip: true
+        font.pixelSize: 15
         font.family: "OpenSymbol"
-//        wrapMode: "WordWrap"
+        wrapMode: "WordWrap"
         Keys.onPressed: {
-            if(event.key==Qt.Key_Escape || event.key==Qt.Key_Enter || event.key==Qt.Key_Return)
-            {
+            if(event.key==Qt.Key_Escape || event.key==Qt.Key_Enter || event.key==Qt.Key_Return) {
                 enterPressed();
             }
         }

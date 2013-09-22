@@ -6,13 +6,16 @@ Rectangle {
     height: 390
     color: "transparent"
 
-
     signal submit_sendMessage(string message)
+
+    Delegate { id: delegate; }
 
     MyListView {
         id: listview
+        rotation: 180
 
-        color: "#2d2d2d"
+        color: "lightblue"
+//        color: "#2d2d2d"
         border.width: 1
         border.color: "white"
         radius: 4
@@ -22,7 +25,9 @@ Rectangle {
         width: parent.width
         height: 317
         model: messageModel
-        delegate: Text { text: nickname + ": " + message; color: if(nickname == controller.get_nickname()) return "yellow"; else return "white"; font.pixelSize: 20; font.family: "OpenSymbol"}
+        delegate: delegate
+//        delegate: Text { text: nickname + ": " + message; color: if(nickname == controller.get_nickname()) return "yellow"; else return "white"; font.pixelSize: 20; font.family: "OpenSymbol"}
+        verticalLayoutDirection: ListView.TopToBottom
     }
 
 
