@@ -25,7 +25,7 @@ MessageModel::MessageModel(QObject *parent) :
 {
 }
 
-int MessageModel::rowCount(const QModelIndex& /*parent*/) const
+int MessageModel::rowCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
     return m_MessageList.count();
