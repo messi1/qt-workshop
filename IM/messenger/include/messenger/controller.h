@@ -40,7 +40,6 @@ private slots:
 
 private:
     QString _nickname;
-
     QTimer* timerKeepAlive;
 
     QSettings settings;

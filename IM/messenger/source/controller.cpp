@@ -7,11 +7,7 @@ Controller::Controller() :
     timerKeepAlive(NULL),
 
     settings("bbv", "messenger")
-    //settings()
 {
-//    QCoreApplication::setOrganizationName("bbv");
-//    QCoreApplication::setOrganizationDomain("bbv.ch");
-//    QCoreApplication::setApplicationName("Messenger");
     _nickname = settings.value("nickname/name", "").toString();
 
     timerKeepAlive = new QTimer(this);

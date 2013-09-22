@@ -3,13 +3,11 @@
 
 #include <QAbstractListModel>
 
-#include <QTimer>
-
 class UserObject
 {
 
 public:
-    UserObject(const QString &nickname, QObject *parent=0);
+    UserObject(const QString &nickname);
 
     QString nickname() const;
     void resetTimout();
@@ -31,7 +29,6 @@ public:
     };
 
     UserModel(QObject *parent = 0);
-    ~UserModel();
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
 
@@ -45,7 +42,6 @@ protected:
 
 private:
     QList<UserObject*> m_UserList;
-    QTimer m_TimeoutTimer;
 };
 
 

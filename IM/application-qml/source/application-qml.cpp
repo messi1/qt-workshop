@@ -4,6 +4,7 @@
 #include <QtQml/QQmlContext>
 
 #include <QThread>
+#include <QTimer>
 
 #include <messenger/controller.h>
 #include <messenger/communication.h>
@@ -13,6 +14,7 @@
 
 #include "messenger/messagemodel.h"
 #include "messenger/usermodel.h"
+#include "messenger/eventmodel.h"
 
 
 namespace IM {
@@ -28,15 +30,27 @@ int Application::execute(int argc, char * argv[])
 
     QQmlContext *context = view.rootContext();
 
+    QTimer TimeoutTimer;
+    const int cTriggerEverySecond = 1000;
+    TimeoutTimer.setInterval(cTriggerEverySecond);
+    TimeoutTimer.start();
+
     MessageModel messageModel;
     context->setContextProperty("messageModel", &messageModel);
 
     UserModel userModel;
     context->setContextProperty("userModel", &userModel);
+    QObject::connect(&TimeoutTimer, SIGNAL(timeout()), &userModel, SLOT(decrementTimeout()));
+
+    EventModel eventModel;
+    context->setContextProperty("eventModel", &eventModel);
+    QObject::connect(&TimeoutTimer, SIGNAL(timeout()), &eventModel, SLOT(decrementTimeout()));
+
 
     Controller* controller = new Controller;
     view.engine()->rootContext()->setContextProperty("controller", controller);
     QObject::connect(controller, SIGNAL(before_change_nickname(QString)), &userModel, SLOT(removeUser(QString)));
+    QObject::connect(controller, SIGNAL(send_hostEvent(QString,QString)), &eventModel, SLOT(addEvent(QString,QString)));
 
     UdpSocket udpSocket;
     Communication *communication = new Communication(&udpSocket);

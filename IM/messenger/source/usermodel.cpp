@@ -1,10 +1,9 @@
 #include "messenger/usermodel.h"
 
-UserObject::UserObject(const QString &nickname, QObject *parent)
+UserObject::UserObject(const QString &nickname)
     : m_nickname(nickname)
     , m_timout(7)
 {
-    Q_UNUSED(parent);
 }
 
 QString UserObject::nickname() const
@@ -33,17 +32,7 @@ void UserObject::decrementTimeout()
 UserModel::UserModel(QObject *parent) :
     QAbstractListModel(parent)
   , m_UserList()
-  , m_TimeoutTimer()
 {
-    m_TimeoutTimer.setInterval(1000);
-    connect(&m_TimeoutTimer, SIGNAL(timeout()), this, SLOT(decrementTimeout()));
-    m_TimeoutTimer.start();
-}
-
-UserModel::~UserModel()
-{
-    m_TimeoutTimer.stop();
-    disconnect();
 }
 
 int UserModel::rowCount(const QModelIndex& parent) const
@@ -106,10 +95,10 @@ QHash<int, QByteArray> UserModel::roleNames() const {
 
 void UserModel::decrementTimeout()
 {
-    for(quint16 index = 0; index < m_UserList.count(); index++) {
-        m_UserList.at(index)->decrementTimeout();
-        if(!m_UserList.at(index)->isAlive()) {
-            removeUser(m_UserList.at(index)->nickname());
+    for(auto user: m_UserList) {
+        user->decrementTimeout();
+        if(!user->isAlive()) {
+            removeUser(user->nickname());
         }
     }
 }
