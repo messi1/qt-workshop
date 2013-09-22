@@ -25,7 +25,7 @@ MessageModel::MessageModel(QObject *parent) :
 {
 }
 
-int MessageModel::rowCount(const QModelIndex& parent) const
+int MessageModel::rowCount(const QModelIndex& /*parent*/) const
 {
     return m_MessageList.count();
 }
@@ -33,7 +33,7 @@ int MessageModel::rowCount(const QModelIndex& parent) const
 void MessageModel::addMessage(const QString &nickname, const QString &message)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    m_MessageList.push_back(new MessageObject(nickname, message));
+    m_MessageList.push_front(new MessageObject(nickname, message));
     //m_animals << animal;
     endInsertRows();
 }
@@ -42,7 +42,7 @@ QVariant MessageModel::data(const QModelIndex & index, int role) const {
     if (index.row() < 0 || index.row() >= m_MessageList.count())
         return QVariant();
 
-    const  MessageObject*  message = m_MessageList[index.row()];
+    const  MessageObject*  message = m_MessageList.first();
     if (role == NicknameRole)
         return message->nickname();
     else if (role == MessageRole)

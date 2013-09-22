@@ -20,5 +20,7 @@
         <file alias="InfoView.qml">qml/InfoView.qml</file>
         <file alias="images/info.png">qml/images/info.png</file>
         <file alias="SlideWindow.qml">qml/SlideWindow.qml</file>
+        <file alias="images/tweetbox.png">qml/images/tweetbox.png</file>
+        <file alias="Delegate.qml">qml/Delegate.qml</file>
     </qresource>
 </RCC>

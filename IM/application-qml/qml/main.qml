@@ -15,7 +15,9 @@ Rectangle {
             id: titleRect
             anchors.top: parent.top
             anchors.left: parent.left
+            anchors.leftMargin: -1
             anchors.right: parent.right
+            anchors.rightMargin: -1
             color: "#4e4e4e"
             border.color: "black"
             height: 50
@@ -33,34 +35,17 @@ Rectangle {
                 anchors.left: parent.left
                 anchors.leftMargin: 5
             }
-
-//            Rectangle {
-//                id: eventActivation
-//                color: "red"
-//                height: 30
-//                width: 100
-//                anchors.top: titleText.bottom
-//                anchors.right: parent.right
-//                radius: 3
-//                border.color: "black"
-//                border.width: 1
-
-//                z:-1
-//                MouseArea {
-//                    anchors.fill: eventActivation
-//                }
-//            }
         }
         SlideWindow {
             id: eventActivation
-            //                color: "red"
-            height: 30
-            width: 100
-//                winHeight: mainView -titleRect.x - titleRect.height
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: titleRect.x+titleRect.height+userListView.x+userListView.height+12
             anchors.top: titleRect.bottom
             anchors.topMargin: -2
-            anchors.right: titleRect.right
             z: 2
+            offText: "v Events"
+            onText:  "^ Events"
         }
 
         Text {
@@ -75,7 +60,7 @@ Rectangle {
         MyListView {
             id: userListView
             anchors.top: titleRect.bottom
-            anchors.topMargin: 30
+            anchors.topMargin: 35
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: sendMessage.top
