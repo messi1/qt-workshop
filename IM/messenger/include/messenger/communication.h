@@ -34,10 +34,10 @@ public slots:
 signals:
     void receivedMessage(const QByteArray& message);
     void receivedKeepAlive(const QString& nickname);
-    void receivedMessage( const QString& nickname, const QString& message );
-    void receivedHostEvent( const QString& nickname, const QString& message );
-    void receivedParicipateInEvent( const QString& nickname, const QString& message );
-    void receivedCallOutEvent( const QString& nickname, const QString& message );
+    void receivedMessage(const QString& nickname, const QString& message);
+    void receivedHostEvent(const QString& nickname, const QString& message);
+    void receivedParicipateInEvent(const QString& nickname, const QString& message);
+    void receivedCallOutEvent(const QString& nickname, const QString& message);
 
 private:
     IUdpSocket* _udp_socket;

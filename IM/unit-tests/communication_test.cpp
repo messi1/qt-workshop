@@ -1,6 +1,8 @@
 #include <QtTest/QTest>
 #include <QtTest/QSignalSpy>
 
+#include <QtNetwork/QUdpSocket>
+
 #include <messenger/communication.h>
 
 #include "mocks/qudpsocket_mock.h"
@@ -110,7 +112,6 @@ void CommunicationTest::handle_send_hostEvent_broadcasts_the_hostEvent_over_udp(
     QCOMPARE(arguments.at(2).toUInt(), expected_port);
 }
 
-
 void CommunicationTest::handle_send_partecipateInEvent_broadcasts_the_hostEvent_over_udp()
 {
     // arrange
@@ -178,3 +179,163 @@ void CommunicationTest::handle_send_callOutEvent_broadcasts_the_hostEvent_over_u
     const quint32 expected_port = 41000;
     QCOMPARE(arguments.at(2).toUInt(), expected_port);
 }
+
+void CommunicationTest::handle_receive_keepAlive_message_over_udp()
+{
+    // arrange
+    qRegisterMetaType<QHostAddress>("QHostAddress");
+    QUdpSocketMock udp_socket;
+    IM::Communication testee(&udp_socket);
+    QSignalSpy signal_spy(&testee, SIGNAL(receivedKeepAlive(QString)));
+
+    // act
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+    stream.setVersion(QDataStream::Qt_5_0);
+
+    stream << IM::Command::KeepAlive;
+    stream << expected_nickname;
+
+    testee.handle_recv_message(data);
+
+    // assert
+    QCOMPARE(signal_spy.count(), 1);
+
+    QList<QVariant> arguments = signal_spy.takeFirst();
+    QVERIFY(arguments.at(0).type() == QVariant::String);
+
+    QString nickname = arguments.at(0).toString();
+    QCOMPARE(nickname, expected_nickname);
+}
+
+void CommunicationTest::handle_receive_message_message_over_udp()
+{
+    // arrange
+    qRegisterMetaType<QHostAddress>("QHostAddress");
+    QUdpSocketMock udp_socket;
+    IM::Communication testee(&udp_socket);
+    QSignalSpy signal_spy(&testee, SIGNAL(receivedMessage(QString,QString)));
+
+    // act
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+    stream.setVersion(QDataStream::Qt_5_0);
+
+    stream << IM::Command::Message;
+    stream << expected_nickname;
+    stream << expected_message;
+
+    testee.handle_recv_message(data);
+
+    // assert
+    QCOMPARE(signal_spy.count(), 1);
+
+    QList<QVariant> arguments = signal_spy.takeFirst();
+    QVERIFY(arguments.at(0).type() == QVariant::String);
+    QVERIFY(arguments.at(1).type() == QVariant::String);
+
+    QString nickname = arguments.at(0).toString();
+    QCOMPARE(nickname, expected_nickname);
+
+    QString message = arguments.at(1).toString();
+    QCOMPARE(message, expected_message);
+}
+
+void CommunicationTest::handle_receive_hostEvent_message_over_udp()
+{
+    // arrange
+    qRegisterMetaType<QHostAddress>("QHostAddress");
+    QUdpSocketMock udp_socket;
+    IM::Communication testee(&udp_socket);
+    QSignalSpy signal_spy(&testee, SIGNAL(receivedHostEvent(QString,QString)));
+
+    // act
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+    stream.setVersion(QDataStream::Qt_5_0);
+
+    stream << IM::Command::HostEvent;
+    stream << expected_nickname;
+    stream << expected_titleEvent;
+
+    testee.handle_recv_message(data);
+
+    // assert
+    QCOMPARE(signal_spy.count(), 1);
+
+    QList<QVariant> arguments = signal_spy.takeFirst();
+    QVERIFY(arguments.at(0).type() == QVariant::String);
+    QVERIFY(arguments.at(1).type() == QVariant::String);
+
+    QString nickname = arguments.at(0).toString();
+    QCOMPARE(nickname, expected_nickname);
+
+    QString titleEvent = arguments.at(1).toString();
+    QCOMPARE(titleEvent, expected_titleEvent);
+}
+
+void CommunicationTest::handle_receive_paricipateInEvent_message_over_udp(){
+    // arrange
+    qRegisterMetaType<QHostAddress>("QHostAddress");
+    QUdpSocketMock udp_socket;
+    IM::Communication testee(&udp_socket);
+    QSignalSpy signal_spy(&testee, SIGNAL(receivedParicipateInEvent(QString,QString)));
+
+    // act
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+    stream.setVersion(QDataStream::Qt_5_0);
+
+    stream << IM::Command::ParticipateInEvent;
+    stream << expected_nickname;
+    stream << expected_titleEvent;
+
+    testee.handle_recv_message(data);
+
+    // assert
+    QCOMPARE(signal_spy.count(), 1);
+
+    QList<QVariant> arguments = signal_spy.takeFirst();
+    QVERIFY(arguments.at(0).type() == QVariant::String);
+    QVERIFY(arguments.at(1).type() == QVariant::String);
+
+    QString nickname = arguments.at(0).toString();
+    QCOMPARE(nickname, expected_nickname);
+
+    QString titleEvent = arguments.at(1).toString();
+    QCOMPARE(titleEvent, expected_titleEvent);
+}
+
+void CommunicationTest::handle_receive_callOutEvent_message_over_udp()
+{
+    // arrange
+    qRegisterMetaType<QHostAddress>("QHostAddress");
+    QUdpSocketMock udp_socket;
+    IM::Communication testee(&udp_socket);
+    QSignalSpy signal_spy(&testee, SIGNAL(receivedCallOutEvent(QString,QString)));
+
+    // act
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+    stream.setVersion(QDataStream::Qt_5_0);
+
+    stream << IM::Command::CallOutEvent;
+    stream << expected_nickname;
+    stream << expected_titleEvent;
+
+    testee.handle_recv_message(data);
+
+    // assert
+    QCOMPARE(signal_spy.count(), 1);
+
+    QList<QVariant> arguments = signal_spy.takeFirst();
+    QVERIFY(arguments.at(0).type() == QVariant::String);
+    QVERIFY(arguments.at(1).type() == QVariant::String);
+
+    QString nickname = arguments.at(0).toString();
+    QCOMPARE(nickname, expected_nickname);
+
+    QString titleEvent = arguments.at(1).toString();
+    QCOMPARE(titleEvent, expected_titleEvent);
+}
+
