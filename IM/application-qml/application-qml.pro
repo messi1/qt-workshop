@@ -26,7 +26,17 @@ OTHER_FILES += \
     qml/SettingsView.qml \
     qml/MyListView.qml \
     qml/SlideWindow.qml \
-    qml/Delegate.qml
+    qml/Delegate.qml \
+    qml/ScrollBar.qml \
+    qml/SettingsAndLogo.qml \
+    qml/SlideSwitch.qml \
+    qml/Tab.qml \
+    qml/TabPanel.qml \
+    qml/MenuBar.qml \
+    qml/TitleBar.qml \
+    qml/MessageList.qml \
+    qml/SendMessagePage.qml \
+    qml/SettingsPage.qml
 
 RESOURCES += \
     application-qml.qrc

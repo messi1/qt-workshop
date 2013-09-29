@@ -7,7 +7,7 @@ Component {
         width: parent.width
         clip: true
         property bool messageIsMine: (nickname == controller.get_nickname())
-        rotation: 180
+//        rotation: 180
 
         Image {
             id: tweetbox

@@ -22,5 +22,14 @@
         <file alias="SlideWindow.qml">qml/SlideWindow.qml</file>
         <file alias="images/tweetbox.png">qml/images/tweetbox.png</file>
         <file alias="Delegate.qml">qml/Delegate.qml</file>
+        <file alias="ScrollBar.qml">qml/ScrollBar.qml</file>
+        <file alias="SettingsAndLogo.qml">qml/SettingsAndLogo.qml</file>
+        <file alias="Tab.qml">qml/Tab.qml</file>
+        <file alias="TabPanel.qml">qml/TabPanel.qml</file>
+        <file alias="MenuBar.qml">qml/MenuBar.qml</file>
+        <file alias="TitleBar.qml">qml/TitleBar.qml</file>
+        <file alias="MessageList.qml">qml/MessageList.qml</file>
+        <file alias="SendMessagePage.qml">qml/SendMessagePage.qml</file>
+        <file alias="SettingsPage.qml">qml/SettingsPage.qml</file>
     </qresource>
 </RCC>

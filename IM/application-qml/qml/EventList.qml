@@ -40,7 +40,7 @@ Rectangle {
 
     AppListView {
         anchors.fill: parent
-        model: ContactModel {}
+//        model: ContactModel {}
         delegate: contactDelegate
 
     }

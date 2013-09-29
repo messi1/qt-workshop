@@ -20,8 +20,8 @@ Item {
 
     Rectangle {
         id: eventWindow
-        width: parent.width
-        height:0
+        width: 0
+        height:parent.height
         anchors.top: parent.top
         anchors.topMargin: -2
         anchors.bottom: button.top
@@ -38,7 +38,7 @@ Item {
         property bool on: false
 
         height: 30
-        width: 100
+        width:  100
         color: button.on ? "grey" : "#2d2d2d"
         border.width: 1
         border.color: button.on ? "white" : "black"
@@ -46,8 +46,9 @@ Item {
         y:0
         z:-1
         anchors.right: parent.right
+        rotation: 90
 
-        onYChanged: { eventWindow.height = button.y }
+        onXChanged: { eventWindow.width = button.x }
 
         Text
         {
@@ -66,9 +67,9 @@ Item {
             id: bla
             anchors.fill: parent
             drag.target: parent
-            drag.axis: Drag.YAxis
-            drag.minimumY: background.border.width
-            drag.maximumY: background.height - button.height - background.border.width
+            drag.axis: Drag.XAxis
+            drag.minimumX: background.border.width
+            drag.maximumX: background.height - button.height - background.border.width
 
             onClicked: {
                 if(slideWindow.state=="on")
@@ -78,7 +79,7 @@ Item {
             }
 
             onReleased: {
-                if(button.y > ((drag.maximumY) / 2)) {
+                if(button.x > ((drag.maximumX) / 2)) {
                     slideWindow.state = ""
                     slideWindow.state = "on"
                     toggled(true)
@@ -98,7 +99,7 @@ Item {
             name: "on"
             PropertyChanges {
                 target: button
-                y: background.height - button.height - background.border.width
+                x: background.width - button.width - background.border.width
                 on: true
             }
         },
@@ -106,7 +107,7 @@ Item {
             name: "off"
             PropertyChanges {
                 target: button
-                y: background.border.width
+                x: background.border.width
                 on: false
             }
         }
@@ -114,7 +115,7 @@ Item {
 
     transitions: Transition {
         NumberAnimation {
-            properties: "y"
+            properties: "x"
             duration: 1000
             easing.type: Easing.OutQuad
         }

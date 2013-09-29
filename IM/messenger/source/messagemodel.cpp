@@ -31,12 +31,18 @@ int MessageModel::rowCount(const QModelIndex& parent) const
     return m_MessageList.count();
 }
 
+
+int MessageModel::messageCount() const
+{
+    return m_MessageList.count();
+}
+
 void MessageModel::addMessage(const QString &nickname, const QString &message)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     m_MessageList.push_front(new MessageObject(nickname, message));
-    //m_animals << animal;
     endInsertRows();
+    emit dataChanged(QModelIndex(),QModelIndex());
 }
 
 QVariant MessageModel::data(const QModelIndex & index, int role) const {

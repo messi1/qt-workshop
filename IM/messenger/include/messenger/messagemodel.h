@@ -30,11 +30,13 @@ public:
         MessageRole
     };
     MessageModel(QObject *parent = 0);
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;    
 
 public slots:
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
     void addMessage(const QString &nickname, const QString &message);
+    int messageCount() const;
 
 protected:
     QHash<int, QByteArray> roleNames() const;

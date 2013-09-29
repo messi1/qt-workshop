@@ -80,7 +80,7 @@ FocusScope {
         objectName: "id_message_input"
         anchors { /*top: parent.top; bottom: parent.bottom;*/ left: parent.left; leftMargin: 8; right: clear.left; rightMargin: 10; verticalCenter: parent.verticalCenter }
 //        height: parent.height
-        verticalAlignment: bottom
+        verticalAlignment: verticalCenter
         focus: true
         selectByMouse: true
         color: "black"

@@ -44,7 +44,7 @@ int Application::execute(int argc, char * argv[])
 
     EventModel eventModel;
     context->setContextProperty("eventModel", &eventModel);
-    QObject::connect(&TimeoutTimer, SIGNAL(timeout()), &eventModel, SLOT(decrementTimeout()));
+//    QObject::connect(&TimeoutTimer, SIGNAL(timeout()), &eventModel, SLOT(decrementTimeout()));
 
 
     Controller* controller = new Controller;

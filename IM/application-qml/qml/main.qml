@@ -9,69 +9,11 @@ Rectangle {
 
     Item {
         anchors.fill: parent
-        anchors.margins: 5
+//        anchors.margins: 5
+//        anchors.rightMargin: 5
 
-        Rectangle {
-            id: titleRect
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.leftMargin: -1
-            anchors.right: parent.right
-            anchors.rightMargin: -1
-            color: "#4e4e4e"
-            border.color: "black"
-            height: 50
-            z:4
-
-            Text {
-                id: titleText
-                text: qsTr("Messenger")
-                font.family: "OpenSymbol"
-                font.pixelSize: 27
-                font.bold: true
-                color: "white"
-
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-            }
-        }
-        SlideWindow {
-            id: eventActivation
-            anchors.left: parent.left
-            anchors.right: parent.right
-            height: titleRect.x+titleRect.height+userListView.x+userListView.height+12
-            anchors.top: titleRect.bottom
-            anchors.topMargin: -2
-            z: 2
-            offText: "v Events"
-            onText:  "^ Events"
-        }
-
-        Text {
-            id: userTitleText
-            text: qsTr("User List")
-            font.family: "OpenSymbol"
-            font.pixelSize: 15
-            color: "white"
-            anchors.bottom: userListView.top
-        }
-
-        MyListView {
-            id: userListView
-            anchors.top: titleRect.bottom
-            anchors.topMargin: 35
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.bottom: sendMessage.top
-            anchors.bottomMargin: 30
-            color: "#2d2d2d"
-            border.width: 1
-            border.color: "white"
-            radius: 4
-
-            model: userModel
-            delegate: Text { text: "[" + nickname + "]"; color: if(nickname == controller.get_nickname()) return "yellow"; else return "white"; font.pixelSize: 20; font.family: "OpenSymbol"}
+        TitleBar {
+            id: titleBar
         }
 
         Text {
@@ -80,48 +22,75 @@ Rectangle {
             font.family: "OpenSymbol"
             font.pixelSize: 15
             color: "white"
-            anchors.bottom: sendMessage.top
+            anchors.top: titleBar.bottom
+            anchors.topMargin: 5
         }
 
-        SendMessage {
+        MessageList {
             id: sendMessage
-            anchors.top: userListView.Bottom
-            anchors.topMargin: 30
-            anchors.bottom: settingAndLogo.top
+            anchors.top: msgTitleText.bottom
+            anchors.topMargin: 5
+            anchors.bottom: menuBar.top
             anchors.bottomMargin: 5
             anchors.left: parent.left
+            anchors.leftMargin: 5
             anchors.right: parent.right
-            onSubmit_sendMessage: controller.invoke_send_message(message);
+            anchors.rightMargin: 5
         }
 
-        Rectangle {
-            id: settingAndLogo
+        MenuBar {
+            id: menuBar
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            color: "#4e4e4e"
-            border.color: "black"
-            height: 50
+            z:5
+        }
 
-            SettingsView {
-                id: settingsView
-                anchors.bottomMargin: -10
-                anchors.leftMargin: -10
+        SendMessagePage {
+            id: sendMessagePage
+            anchors.top: menuBar.top
+            anchors.left: menuBar.left
+            anchors.right: menuBar.right
+            anchors.bottom: menuBar.bottom
+//            height: 40
+            anchors.bottomMargin: menuBar.menuBarHeight+10
+            onSubmit_sendMessage: controller.invoke_send_message(message);
+        }
 
-                z: 5
-                height: 70
-            }
-
-            Image
-            {
-                id: imgBBV
-                z: 2
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
-                anchors.rightMargin: -60
-                scale: 0.4
-                source: "images/BBV_Logo.png"
-            }
+        SettingsPage {
+            id: settingsPage
+            anchors.top: menuBar.top
+            anchors.left: menuBar.left
+            anchors.right: menuBar.right
+            anchors.bottom: menuBar.bottom
+//            height: 40
+            anchors.bottomMargin: menuBar.menuBarHeight+10
         }
     }
 }
+
+//        Text {
+//            id: userTitleText
+//            text: qsTr("User List")
+//            font.family: "OpenSymbol"
+//            font.pixelSize: 15
+//            color: "white"
+//            anchors.bottom: userListView.top
+//        }
+
+//        MyListView {
+//            id: userListView
+//            anchors.top: titleRect.bottom
+//            anchors.topMargin: 35
+//            anchors.left: parent.left
+//            anchors.right: parent.right
+//            anchors.bottom: sendMessage.top
+//            anchors.bottomMargin: 30
+//            color: "#2d2d2d"
+//            border.width: 1
+//            border.color: "white"
+//            radius: 4
+
+//            model: userModel
+//            delegate: Text { text: "[" + nickname + "]"; color: if(nickname == controller.get_nickname()) return "yellow"; else return "white"; font.pixelSize: 20; font.family: "OpenSymbol"}
+//        }
