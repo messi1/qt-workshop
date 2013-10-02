@@ -44,6 +44,7 @@ Rectangle {
         color: "black"
         font.family: "OpenSymbol"
         font.pixelSize: 16
+        maximumLength: 24
 
         //onTextChanged: controller.setNickName=nicknameInput.text
 

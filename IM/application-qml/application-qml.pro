@@ -36,7 +36,8 @@ OTHER_FILES += \
     qml/EventDelegate.qml \
     qml/TextButton.qml \
     qml/SmallText.qml \
-    qml/UserPage.qml
+    qml/UserPage.qml \
+    qml/UserView.qml
 
 RESOURCES += \
     application-qml.qrc

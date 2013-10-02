@@ -34,5 +34,6 @@
         <file alias="images/moreDown.png">qml/images/moreDown.png</file>
         <file alias="images/moreUp.png">qml/images/moreUp.png</file>
         <file alias="UserPage.qml">qml/UserPage.qml</file>
+        <file alias="UserView.qml">qml/UserView.qml</file>
     </qresource>
 </RCC>

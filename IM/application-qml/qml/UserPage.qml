@@ -1,6 +1,6 @@
 import QtQuick 2.0
 
-MyListView {
+UserView {
     id: userListView
     anchors.top: parent.top
     anchors.left: parent.left
@@ -14,5 +14,5 @@ MyListView {
     radius: 4
 
     model: userModel
-    delegate: Text { text: "[" + nickname + "]"; color: if(nickname == controller.get_nickname()) return "yellow"; else return "white"; font.pixelSize: 20; font.family: "OpenSymbol"}
+    delegate: Text { text: "[" + nickname + "]"; color: if(nickname == controller.get_nickname()) return "yellow"; else return "white"; font.pixelSize: 12; font.family: "OpenSymbol"}
 }
