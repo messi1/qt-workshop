@@ -52,6 +52,12 @@ Rectangle {
 
     }
 
+    onOpacityChanged: {
+        if(opacity>0.0)
+            msgBox.focus=true
+    }
+
+
     function clearAndSendMessage()
     {
         if(msgBox.text.length > 0) {

@@ -10,49 +10,12 @@ Item {
     height: 50
 
     Rectangle {
-        id:messagePanel
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: staticRect.top
-        color: "red"
-        opacity: 0.0
-        Rectangle {
-            color: "purple"
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.right: parent.right
-            height: 50
-        }
-    }
-
-    Rectangle {
         id:eventPanel
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: staticRect.top
         color: "blue"
-        opacity: 0.0
-    }
-
-    Rectangle {
-        id:userPanel
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: staticRect.top
-        color: "green"
-        opacity: 0.0
-    }
-
-    Rectangle {
-        id:settingPanel
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: staticRect.top
-        color: "orange"
         opacity: 0.0
     }
 
@@ -94,14 +57,13 @@ Item {
             State {
                 name: "message"
                 PropertyChanges { target: sendMessagePage; opacity:1.0; restoreEntryValues: true }
-//                PropertyChanges { target: sendMessagePage; z:-1; restoreEntryValues: true }
                 PropertyChanges { target: menuBar; height:100; restoreEntryValues: true }
             },
 
             State {
                 name: "user"
-                PropertyChanges { target: userPanel; opacity:1.0; restoreEntryValues: true }
-                PropertyChanges { target: menuBar; height:400; restoreEntryValues: true }
+                PropertyChanges { target: userPage; opacity:1.0; restoreEntryValues: true }
+                PropertyChanges { target: menuBar; height:250; restoreEntryValues: true }
             },
             State {
                 name: "event"
@@ -117,11 +79,14 @@ Item {
 
         // creating a list of transitions for the different states of the PagePanel
         transitions: [
-//            Transition {
-//                //for all states run the same transition
-//                from: "*"; to: "*"
-//                NumberAnimation { property: "opacity"; duration: 800 }
-//            },
+            Transition {
+                //for all states run the same transition
+                from: "*"; to: "*"
+                ParallelAnimation {
+                NumberAnimation { target: menuBar; property: "height"; duration: 500; easing.type: Easing.InOutQuad }
+                NumberAnimation { property: "opacity"; duration: 500 }
+                }
+            },
             Transition {
                 from: ""; to: "*"
                 ParallelAnimation {

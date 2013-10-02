@@ -32,9 +32,14 @@ Rectangle {
         height: parent.height
     }
 
+//    FocusScope
+//    {
+//        id: nicknameInput
+//        anchors.fill: borderImage
+
     TextInput{
         id: nicknameInput
-        anchors.fill: borderImage
+        anchors.fill: parent
         anchors.margins: 5
         color: "black"
         font.family: "OpenSymbol"
@@ -57,7 +62,13 @@ Rectangle {
                 nicknameInput.text = controller.setNickName
             }
         }
+    } // TextInput
+
+    onOpacityChanged: {
+        if(opacity>0.0)
+            nicknameInput.focus=true
     }
+//    }
 
 //    Rectangle {
 //        anchors.horizontalCenter: parent.horizontalCenter

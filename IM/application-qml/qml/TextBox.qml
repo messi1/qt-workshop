@@ -70,17 +70,13 @@ FocusScope {
         font.italic: true
     }
 
-    MouseArea { 
-        anchors.fill: parent
-        onClicked: { focusScope.focus = true; Qt.inputMethod.show(); }
-    }
-
     TextInput {
         id: textInput
+        z:5
         objectName: "id_message_input"
         anchors { /*top: parent.top; bottom: parent.bottom;*/ left: parent.left; leftMargin: 8; right: clear.left; rightMargin: 10; verticalCenter: parent.verticalCenter }
 //        height: parent.height
-        verticalAlignment: verticalCenter
+//        verticalAlignment: verticalCenter
         focus: true
         selectByMouse: true
         color: "black"
@@ -104,7 +100,10 @@ FocusScope {
 
         MouseArea { 
             anchors.fill: parent
-            onClicked: { textInput.text = ''; focusScope.focus = true; /*textInput.openSoftwareInputPanel();*/ }
+            onClicked: {
+                textInput.text = '';
+                focusScope.focus = true; /*textInput.openSoftwareInputPanel();*/
+            }
         }
     }
 
@@ -124,4 +123,8 @@ FocusScope {
             NumberAnimation { properties: "opacity" }
         }
     ]
+
+    onFocusChanged: {
+        textInput.focus=true
+    }
 }

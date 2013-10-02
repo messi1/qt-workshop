@@ -43,7 +43,6 @@ Rectangle {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            z:5
         }
 
         SendMessagePage {
@@ -52,9 +51,17 @@ Rectangle {
             anchors.left: menuBar.left
             anchors.right: menuBar.right
             anchors.bottom: menuBar.bottom
-//            height: 40
             anchors.bottomMargin: menuBar.menuBarHeight+10
             onSubmit_sendMessage: controller.invoke_send_message(message);
+        }
+
+        UserPage {
+            id: userPage
+            anchors.top: menuBar.top
+            anchors.left: menuBar.left
+            anchors.right: menuBar.right
+            anchors.bottom: menuBar.bottom
+            anchors.bottomMargin: menuBar.menuBarHeight+10
         }
 
         SettingsPage {
@@ -63,7 +70,6 @@ Rectangle {
             anchors.left: menuBar.left
             anchors.right: menuBar.right
             anchors.bottom: menuBar.bottom
-//            height: 40
             anchors.bottomMargin: menuBar.menuBarHeight+10
         }
     }

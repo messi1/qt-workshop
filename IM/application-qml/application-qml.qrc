@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/IM">
         <file alias="main.qml">qml/main.qml</file>
-        <file alias="SendMessage.qml">qml/SendMessage.qml</file>
-        <file alias="AppListView.qml">qml/AppListView.qml</file>
         <file alias="CreateEvent.qml">qml/CreateEvent.qml</file>
         <file alias="Event.qml">qml/Event.qml</file>
         <file alias="EventList.qml">qml/EventList.qml</file>
@@ -12,7 +10,6 @@
         <file alias="images/lineedit-bg.png">qml/images/lineedit-bg.png</file>
         <file alias="images/lineedit-bg-focus.png">qml/images/lineedit-bg-focus.png</file>
         <file alias="Button.qml">qml/Button.qml</file>
-        <file alias="SettingsView.qml">qml/SettingsView.qml</file>
         <file alias="images/settings.png">qml/images/settings.png</file>
         <file alias="images/panel_bg.png">qml/images/panel_bg.png</file>
         <file alias="MyListView.qml">qml/MyListView.qml</file>
@@ -31,5 +28,11 @@
         <file alias="MessageList.qml">qml/MessageList.qml</file>
         <file alias="SendMessagePage.qml">qml/SendMessagePage.qml</file>
         <file alias="SettingsPage.qml">qml/SettingsPage.qml</file>
+        <file alias="EventDelegate.qml">qml/EventDelegate.qml</file>
+        <file alias="TextButton.qml">qml/TextButton.qml</file>
+        <file alias="SmallText.qml">qml/SmallText.qml</file>
+        <file alias="images/moreDown.png">qml/images/moreDown.png</file>
+        <file alias="images/moreUp.png">qml/images/moreUp.png</file>
+        <file alias="UserPage.qml">qml/UserPage.qml</file>
     </qresource>
 </RCC>
