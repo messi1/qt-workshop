@@ -3,6 +3,18 @@ import QtQuick 2.0
 Item {
     id: menuBar
     property alias menuBarHeight: staticRect.height
+    default property alias content: stack.children
+
+    property int current: 0
+
+//    onCurrentChanged: setOpacities()
+//    Component.onCompleted: setOpacities()
+
+    function setOpacities() {
+        for (var i = 0; i < stack.children.length; ++i) {
+            stack.children[i].opacity = (i == current ? 1 : 0)
+        }
+    }
 
     anchors.bottom: parent.bottom
     anchors.left: parent.left
@@ -31,7 +43,8 @@ Item {
         TabPanel {
             id: tabPanel
             anchors.fill: parent
-            activeMarker: "message";
+            activeMarker: "";
+            activeTab: -1
 
             tabData: [
                     {  markerid: "message", label: "Message" },
@@ -110,5 +123,10 @@ Item {
             color: "black"
             anchors.top: parent.top
         }
+    }
+
+    Item {
+        id: stack
+        anchors.fill: parent
     }
 }

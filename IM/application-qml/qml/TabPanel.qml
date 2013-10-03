@@ -43,6 +43,7 @@ import QtQuick 2.0
 Item {
     id: root
     anchors.fill: parent
+    property alias activeTab: rowLayout.activeTab
 
     // a property of type string to hold the value of the current active marker
     property string activeMarker: ""

@@ -7,7 +7,7 @@ Rectangle {
     anchors.leftMargin: 5
     anchors.right: parent.right
     anchors.rightMargin: 5
-    color: "purple"
+    color: "transparent"
     opacity: 0.0
 
     Text{
