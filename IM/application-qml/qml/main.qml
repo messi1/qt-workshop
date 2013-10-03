@@ -64,6 +64,15 @@ Rectangle {
             anchors.bottomMargin: menuBar.menuBarHeight+10
         }
 
+        SendEventPage {
+            id: sendEventPage
+            anchors.top: menuBar.top
+            anchors.left: menuBar.left
+            anchors.right: menuBar.right
+            anchors.bottom: menuBar.bottom
+            anchors.bottomMargin: menuBar.menuBarHeight+10
+        }
+
         SettingsPage {
             id: settingsPage
             anchors.top: menuBar.top

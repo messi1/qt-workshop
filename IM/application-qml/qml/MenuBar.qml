@@ -80,8 +80,8 @@ Item {
             },
             State {
                 name: "event"
-                PropertyChanges { target: eventPanel; opacity:1.0; restoreEntryValues: true }
-                PropertyChanges { target: menuBar; height:400; restoreEntryValues: true }
+                PropertyChanges { target: sendEventPage; opacity:1.0; restoreEntryValues: true }
+                PropertyChanges { target: menuBar; height:200; restoreEntryValues: true }
             },
             State {
                 name: "setting"
