@@ -41,7 +41,8 @@ OTHER_FILES += \
     qml/SendEventPage.qml
 
 RESOURCES += \
-    application-qml.qrc
+    application-qml.qrc \
+    icons.qrc
 
 unix: QMAKE_CXXFLAGS_DEBUG += -fprofile-arcs -ftest-coverage
 
