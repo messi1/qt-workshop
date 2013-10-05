@@ -53,6 +53,7 @@ Rectangle {
             anchors.bottom: menuBar.bottom
             anchors.bottomMargin: menuBar.menuBarHeight+10
             onSubmit_sendMessage: controller.invoke_send_message(message);
+            z:5
         }
 
         UserPage {

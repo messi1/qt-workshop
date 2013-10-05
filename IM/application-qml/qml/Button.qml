@@ -3,6 +3,7 @@ import QtQuick 2.0
 Rectangle
 {
     property alias btnText: buttonText.text
+    property alias source: iconId.source
 
     id: button
     width: 106
@@ -26,6 +27,15 @@ Rectangle
         font.family: "OpenSymbol"
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
+
+        Image {
+            id: iconId
+            anchors.centerIn: parent
+            scale: 0.7
+//            anchors.fill: parent
+//            horizontalAlignment: Text.AlignHCenter
+//            verticalAlignment: Text.AlignVCenter
+        }
     }
 
     MouseArea

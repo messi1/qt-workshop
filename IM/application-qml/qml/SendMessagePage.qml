@@ -19,8 +19,6 @@ Rectangle {
         anchors.right: parent.right
 //        anchors.bottom: parent.bottom
 //        anchors.bottomMargin: 5
-//        anchors.left: parent.left
-//        anchors.right: parent.right
 
         height: parent.height
 
@@ -36,27 +34,36 @@ Rectangle {
         }
 
         Button {
-            id: id_send_button
-            objectName: "id_send_button"
+            id: smilyButton
             width: 100
-            height: parent.height-2
+            height: (parent.height/2)-2
             anchors.top: parent.top
             anchors.right:  parent.right
             anchors.topMargin: 1
+            source:  "images/chat_simley_happy.png"
+
+        }
+
+        Button {
+            id: id_send_button
+            objectName: "id_send_button"
+            width: 100
+            height: (parent.height/2)-2
+            anchors.top: smilyButton.bottom
+            anchors.right:  parent.right
+            anchors.topMargin: 1
+            z:5
 
             btnText: qsTr("send")
 
             onClicked: { clearAndSendMessage() }
         }
-
-
     }
 
     onOpacityChanged: {
         if(opacity>0.0)
             msgBox.focus=true
     }
-
 
     function clearAndSendMessage()
     {

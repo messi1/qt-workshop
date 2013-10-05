@@ -29,7 +29,7 @@
         <file alias="images/BBV_Logo.png">qml/images/BBV_Logo.png</file>
         <file>qml/images/chat_smiley_angry.png</file>
         <file>qml/images/chat_smiley_frustrated.png</file>
-        <file>qml/images/chat_smiley_happy.png</file>
+        <file alias="images/chat_simley_happy.png">qml/images/chat_smiley_happy.png</file>
         <file>qml/images/chat_smiley_lips.png</file>
         <file>qml/images/chat_smiley_nerd.png</file>
         <file>qml/images/chat_smiley_sad.png</file>

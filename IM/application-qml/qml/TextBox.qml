@@ -40,7 +40,7 @@
 
 import QtQuick 2.0
 
-FocusScope {
+Item/*FocusScope*/ {
     id: focusScope
     width: 250; height: 28
 

@@ -7,8 +7,8 @@ Item {
 
     property int current: 0
 
-//    onCurrentChanged: setOpacities()
-//    Component.onCompleted: setOpacities()
+    onCurrentChanged: setOpacities()
+    Component.onCompleted: setOpacities()
 
     function setOpacities() {
         for (var i = 0; i < stack.children.length; ++i) {
@@ -20,16 +20,6 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     height: 50
-
-    Rectangle {
-        id:eventPanel
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: staticRect.top
-        color: "blue"
-        opacity: 0.0
-    }
 
     Rectangle {
         id: staticRect
@@ -70,7 +60,7 @@ Item {
             State {
                 name: "message"
                 PropertyChanges { target: sendMessagePage; opacity:1.0; restoreEntryValues: true }
-                PropertyChanges { target: menuBar; height:100; restoreEntryValues: true }
+                PropertyChanges { target: menuBar; height:150; restoreEntryValues: true }
             },
 
             State {
@@ -128,5 +118,6 @@ Item {
     Item {
         id: stack
         anchors.fill: parent
+        z:-1
     }
 }
