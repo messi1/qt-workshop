@@ -52,6 +52,8 @@ void Controller::set_nickname(const QString & nickname)
 {
     timerKeepAlive->stop();
     emit(before_change_nickname(_nickname));
+    emit before_change_nickname(_nickname, nickname);
+
     _nickname = nickname;
 
     invoke_send_keepAlive();

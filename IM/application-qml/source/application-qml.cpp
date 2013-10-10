@@ -46,20 +46,20 @@ int Application::execute(int argc, char * argv[])
     context->setContextProperty("eventModel", &eventModel);
 //    QObject::connect(&TimeoutTimer, SIGNAL(timeout()), &eventModel, SLOT(decrementTimeout()));
 
-
     Controller* controller = new Controller;
     view.engine()->rootContext()->setContextProperty("controller", controller);
+    QObject::connect(controller, SIGNAL(before_change_nickname(QString, QString)), &messageModel, SLOT(changeNicknameOfMyMessages(QString,QString)));
     QObject::connect(controller, SIGNAL(before_change_nickname(QString)), &userModel, SLOT(removeUser(QString)));
     QObject::connect(controller, SIGNAL(send_hostEvent(QString,QString)), &eventModel, SLOT(addEvent(QString,QString)));
 
     UdpSocket udpSocket;
     Communication *communication = new Communication(&udpSocket);
     udpSocket.bind(QHostAddress::Broadcast, communication->getPort());
-    QObject::connect(controller, SIGNAL(send_message(const QString &, const QString &)), communication, SLOT(handle_send_message(const QString &, const QString &)));
-    QObject::connect(controller, SIGNAL(send_keepAlive(const QString&)), communication, SLOT(handle_send_keepAlive(const QString&)));
-    QObject::connect(communication, SIGNAL(receivedMessage(QString,QString)), &messageModel, SLOT(addMessage(QString,QString)));
-    QObject::connect(communication, SIGNAL(receivedKeepAlive(QString)), &userModel, SLOT(addUser(QString)));
-    QObject::connect(&udpSocket, SIGNAL(datagramReceived(QByteArray&)), communication, SLOT(handle_recv_message(QByteArray&)));
+    QObject::connect(controller,    SIGNAL(send_message(const QString &, const QString &)), communication, SLOT(handle_send_message(const QString &, const QString &)));
+    QObject::connect(controller,    SIGNAL(send_keepAlive(const QString&)),                 communication, SLOT(handle_send_keepAlive(const QString&)));
+    QObject::connect(communication, SIGNAL(receivedMessage(QString,QString)),               &messageModel, SLOT(addMessage(QString,QString)));
+    QObject::connect(communication, SIGNAL(receivedKeepAlive(QString)),                     &userModel,    SLOT(addUser(QString)));
+    QObject::connect(&udpSocket,    SIGNAL(datagramReceived(QByteArray&)),                  communication, SLOT(handle_recv_message(QByteArray&)));
 
     view.connect(view.engine(), SIGNAL(quit()), SLOT(close()));
     view.setResizeMode(QQuickView::SizeRootObjectToView);

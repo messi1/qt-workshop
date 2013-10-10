@@ -9,15 +9,6 @@ Rectangle {
     border.color: "black"
     height: 50
 
-    SettingsView {
-        id: settingsView
-        anchors.bottomMargin: -10
-        anchors.leftMargin: -10
-
-        z: 5
-        height: 70
-    }
-
     Image
     {
         id: imgBBV

@@ -12,7 +12,7 @@ Item {
     height: 32
 
 
-    SendMessage {
+    SendMessagePage {
         id: testee
     }
 

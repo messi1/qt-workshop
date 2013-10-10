@@ -27,20 +27,6 @@ Rectangle {
         }
     }
 
-    AppListView {
-        id: eventList
-        color: "#2d2d2d"
-        border.width: 1
-        border.color: "white"
-        radius: 4
-        anchors.top: root.top
-        anchors.bottom: createToolbar.top
-        anchors.bottomMargin: 3
-        width: parent.width
-        delegate: contactDelegate
-//        model: ContactModel {}
-    }
-
     CreateEvent {
         id: createToolbar
         height: 50

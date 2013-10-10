@@ -34,6 +34,7 @@ signals:
     void nicknameChanged(QString&);
 
     void before_change_nickname(const QString &oldnickname);
+    void before_change_nickname(const QString &oldnickname, const QString& newnickname);
 
 private slots:
     void invoke_send_keepAlive();

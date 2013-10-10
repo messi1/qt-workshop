@@ -4,12 +4,18 @@
 MessageObject::MessageObject(const QString &nickname, const QString &message)
     : m_nickname(nickname)
     , m_message(message)
+    , m_myMessage(false)
 {
 }
 
 QString MessageObject::nickname() const
 {
     return m_nickname;
+}
+
+void MessageObject::setNickname(const QString& name)
+{
+    m_nickname = name;
 }
 
 
@@ -42,7 +48,19 @@ void MessageModel::addMessage(const QString &nickname, const QString &message)
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     m_MessageList.push_front(new MessageObject(nickname, message));
     endInsertRows();
-    emit dataChanged(QModelIndex(),QModelIndex());
+}
+
+void MessageModel::changeNicknameOfMyMessages(const QString& oldNickname, const QString& newNickname)
+{
+    for(int i=0; i<m_MessageList.length(); ++i)
+    {
+        if(m_MessageList[i]->nickname()==oldNickname)
+            m_MessageList[i]->setNickname(newNickname);
+    }
+
+    QModelIndex r1 = index(0);
+    QModelIndex r2 = index(4);
+    emit dataChanged(r1,r2);
 }
 
 QVariant MessageModel::data(const QModelIndex & index, int role) const {

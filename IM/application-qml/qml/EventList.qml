@@ -37,13 +37,6 @@ Rectangle {
             }
         }
     }
-
-    AppListView {
-        anchors.fill: parent
-//        model: ContactModel {}
-        delegate: contactDelegate
-
-    }
 }
 
 

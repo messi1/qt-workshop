@@ -14,10 +14,12 @@ public:
 
     QString nickname() const;
     QString message() const;
+    void setNickname(const QString &name);
 
 private:
     QString m_nickname;
     QString m_message;
+    bool m_myMessage;
 };
 
 
@@ -34,9 +36,10 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;    
 
 public slots:
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    int  rowCount(const QModelIndex &parent = QModelIndex()) const;
     void addMessage(const QString &nickname, const QString &message);
-    int messageCount() const;
+    int  messageCount() const;
+    void changeNicknameOfMyMessages(const QString& oldNickname, const QString& newNickname);
 
 protected:
     QHash<int, QByteArray> roleNames() const;

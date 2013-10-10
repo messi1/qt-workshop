@@ -6,7 +6,7 @@ Component {
         height: 75;
         width: parent.width
         clip: true
-        property bool messageIsMine: (nickname == controller.get_nickname())
+        property bool messageIsMine: (nickname === controller.get_nickname())
 //        rotation: 180
 
         Image {
@@ -16,8 +16,18 @@ Component {
             anchors.leftMargin: messageIsMine ? 0 : 100
             anchors.right: parent.right
             anchors.rightMargin:  messageIsMine ? 100 : 0
-
         }
+
+//        Rectangle {
+//            id: tweetbox
+//            anchors.left: parent.left
+//            anchors.leftMargin: messageIsMine ? 0 : 100
+//            anchors.right: parent.right
+//            anchors.rightMargin:  messageIsMine ? 100 : 0
+//            color: "ivory"
+//            border.color: "orange"
+//            radius: 5
+//        }
 
         Text {
             id: tweetText

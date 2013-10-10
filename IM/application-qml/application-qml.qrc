@@ -26,7 +26,6 @@
         <file alias="UserPage.qml">qml/UserPage.qml</file>
         <file alias="UserView.qml">qml/UserView.qml</file>
         <file alias="SendEventPage.qml">qml/SendEventPage.qml</file>
-        <file alias="images/BBV_Logo.png">qml/images/BBV_Logo.png</file>
         <file>qml/images/chat_smiley_angry.png</file>
         <file>qml/images/chat_smiley_frustrated.png</file>
         <file alias="images/chat_simley_happy.png">qml/images/chat_smiley_happy.png</file>
@@ -49,5 +48,30 @@
         <file alias="images/moreDown.png">qml/images/moreDown.png</file>
         <file alias="images/moreUp.png">qml/images/moreUp.png</file>
         <file alias="images/tweetbox.png">qml/images/tweetbox.png</file>
+        <file alias="images/BBV_Logo.png">qml/images/BBV_Logo.png</file>
+    </qresource>
+    <qresource prefix="/IMI">
+        <file>qml/images/chat_smiley_angry.png</file>
+        <file>qml/images/chat_smiley_frustrated.png</file>
+        <file>qml/images/chat_smiley_happy.png</file>
+        <file>qml/images/chat_smiley_lips.png</file>
+        <file>qml/images/chat_smiley_nerd.png</file>
+        <file>qml/images/chat_smiley_sad.png</file>
+        <file>qml/images/chat_smiley_sleepy.png</file>
+        <file>qml/images/chat_smiley_surprised.png</file>
+        <file>qml/images/chat_smiley_tongue.png</file>
+        <file>qml/images/chat_smiley_veryhappy.png</file>
+        <file>qml/images/chat_smiley_wink.png</file>
+        <file>qml/images/chat_smiley_worried.png</file>
+        <file>qml/images/check.svg</file>
+        <file>qml/images/check2.png</file>
+        <file>qml/images/clear.png</file>
+        <file>qml/images/clear.svg</file>
+        <file>qml/images/clear2.png</file>
+        <file>qml/images/lineedit-bg.png</file>
+        <file>qml/images/lineedit-bg-focus.png</file>
+        <file>qml/images/moreDown.png</file>
+        <file>qml/images/moreUp.png</file>
+        <file>qml/images/tweetbox.png</file>
     </qresource>
 </RCC>

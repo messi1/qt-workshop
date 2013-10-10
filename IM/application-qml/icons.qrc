@@ -1,6 +1,6 @@
 <RCC>
-    <qresource prefix="/icons">
-        <file alias="images/BBV_Logo.png">qml/images/BBV_Logo.png</file>
+    <qresource prefix="/B">
+        <file alias="b.png">qml/images/BBV_Logo.png</file>
         <file>qml/images/chat_smiley_angry.png</file>
         <file>qml/images/chat_smiley_frustrated.png</file>
         <file>qml/images/chat_smiley_happy.png</file>
