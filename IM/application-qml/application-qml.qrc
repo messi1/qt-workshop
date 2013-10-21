@@ -1,77 +1,57 @@
 <RCC>
-    <qresource prefix="/IM">
+    <qresource prefix="/">
         <file alias="main.qml">qml/main.qml</file>
         <file alias="CreateEvent.qml">qml/CreateEvent.qml</file>
         <file alias="Event.qml">qml/Event.qml</file>
         <file alias="EventList.qml">qml/EventList.qml</file>
         <file alias="EventView.qml">qml/EventView.qml</file>
-        <file alias="TextBox.qml">qml/TextBox.qml</file>
-        <file alias="Button.qml">qml/Button.qml</file>
         <file alias="MyListView.qml">qml/MyListView.qml</file>
         <file alias="InfoView.qml">qml/InfoView.qml</file>
         <file alias="SlideWindow.qml">qml/SlideWindow.qml</file>
         <file alias="Delegate.qml">qml/Delegate.qml</file>
-        <file alias="ScrollBar.qml">qml/ScrollBar.qml</file>
         <file alias="SettingsAndLogo.qml">qml/SettingsAndLogo.qml</file>
-        <file alias="Tab.qml">qml/Tab.qml</file>
-        <file alias="TabPanel.qml">qml/TabPanel.qml</file>
         <file alias="MenuBar.qml">qml/MenuBar.qml</file>
         <file alias="TitleBar.qml">qml/TitleBar.qml</file>
         <file alias="MessageList.qml">qml/MessageList.qml</file>
         <file alias="SendMessagePage.qml">qml/SendMessagePage.qml</file>
         <file alias="SettingsPage.qml">qml/SettingsPage.qml</file>
         <file alias="EventDelegate.qml">qml/EventDelegate.qml</file>
-        <file alias="TextButton.qml">qml/TextButton.qml</file>
         <file alias="SmallText.qml">qml/SmallText.qml</file>
         <file alias="UserPage.qml">qml/UserPage.qml</file>
         <file alias="UserView.qml">qml/UserView.qml</file>
         <file alias="SendEventPage.qml">qml/SendEventPage.qml</file>
-        <file>qml/images/chat_smiley_angry.png</file>
-        <file>qml/images/chat_smiley_frustrated.png</file>
-        <file alias="images/chat_simley_happy.png">qml/images/chat_smiley_happy.png</file>
-        <file>qml/images/chat_smiley_lips.png</file>
-        <file>qml/images/chat_smiley_nerd.png</file>
-        <file>qml/images/chat_smiley_sad.png</file>
-        <file>qml/images/chat_smiley_sleepy.png</file>
-        <file>qml/images/chat_smiley_surprised.png</file>
-        <file>qml/images/chat_smiley_tongue.png</file>
-        <file>qml/images/chat_smiley_veryhappy.png</file>
-        <file>qml/images/chat_smiley_wink.png</file>
-        <file>qml/images/chat_smiley_worried.png</file>
-        <file alias="images/check.svg">qml/images/check.svg</file>
-        <file alias="images/check2.png">qml/images/check2.png</file>
-        <file alias="images/clear.png">qml/images/clear.png</file>
-        <file alias="images/clear.svg">qml/images/clear.svg</file>
-        <file>qml/images/clear2.png</file>
-        <file alias="images/lineedit-bg.png">qml/images/lineedit-bg.png</file>
-        <file alias="images/lineedit-bg-focus.png">qml/images/lineedit-bg-focus.png</file>
-        <file alias="images/moreDown.png">qml/images/moreDown.png</file>
-        <file alias="images/moreUp.png">qml/images/moreUp.png</file>
-        <file alias="images/tweetbox.png">qml/images/tweetbox.png</file>
-        <file alias="images/BBV_Logo.png">qml/images/BBV_Logo.png</file>
     </qresource>
-    <qresource prefix="/IMI">
-        <file>qml/images/chat_smiley_angry.png</file>
-        <file>qml/images/chat_smiley_frustrated.png</file>
-        <file>qml/images/chat_smiley_happy.png</file>
-        <file>qml/images/chat_smiley_lips.png</file>
-        <file>qml/images/chat_smiley_nerd.png</file>
-        <file>qml/images/chat_smiley_sad.png</file>
-        <file>qml/images/chat_smiley_sleepy.png</file>
-        <file>qml/images/chat_smiley_surprised.png</file>
-        <file>qml/images/chat_smiley_tongue.png</file>
-        <file>qml/images/chat_smiley_veryhappy.png</file>
-        <file>qml/images/chat_smiley_wink.png</file>
-        <file>qml/images/chat_smiley_worried.png</file>
-        <file>qml/images/check.svg</file>
-        <file>qml/images/check2.png</file>
-        <file>qml/images/clear.png</file>
-        <file>qml/images/clear.svg</file>
-        <file>qml/images/clear2.png</file>
-        <file>qml/images/lineedit-bg.png</file>
-        <file>qml/images/lineedit-bg-focus.png</file>
-        <file>qml/images/moreDown.png</file>
-        <file>qml/images/moreUp.png</file>
-        <file>qml/images/tweetbox.png</file>
+    <qresource prefix="/images">
+        <file alias="chat_smiley_angry.png">qml/images/chat_smiley_angry.png</file>
+        <file alias="chat_smiley_frustrated.png">qml/images/chat_smiley_frustrated.png</file>
+        <file alias="chat_smiley_happy.png">qml/images/chat_smiley_happy.png</file>
+        <file alias="chat_smiley_lipspng">qml/images/chat_smiley_lips.png</file>
+        <file alias="chat_smiley_nerd.png">qml/images/chat_smiley_nerd.png</file>
+        <file alias="chat_smiley_sad.png">qml/images/chat_smiley_sad.png</file>
+        <file alias="chat_smiley_sleepy.png">qml/images/chat_smiley_sleepy.png</file>
+        <file alias="chat_smiley_surprised.png">qml/images/chat_smiley_surprised.png</file>
+        <file alias="chat_smiley_tongue.png">qml/images/chat_smiley_tongue.png</file>
+        <file alias="chat_smiley_veryhappy.png">qml/images/chat_smiley_veryhappy.png</file>
+        <file alias="chat_smiley_wink.png">qml/images/chat_smiley_wink.png</file>
+        <file alias="chat_smiley_worried.png">qml/images/chat_smiley_worried.png</file>
+        <file alias="check.svg">qml/images/check.svg</file>
+        <file alias="check2.png">qml/images/check2.png</file>
+        <file alias="clear.png">qml/images/clear.png</file>
+        <file alias="clear.svg">qml/images/clear.svg</file>
+        <file alias="clear2.png">qml/images/clear2.png</file>
+        <file alias="lineedit-bg.png">qml/images/lineedit-bg.png</file>
+        <file alias="lineedit-bg-focus.png">qml/images/lineedit-bg-focus.png</file>
+        <file alias="moreDown.png">qml/images/moreDown.png</file>
+        <file alias="moreUp.png">qml/images/moreUp.png</file>
+        <file alias="tweetbox.png">qml/images/tweetbox.png</file>
+        <file alias="BBV_Logo.png">qml/images/BBV_Logo.png</file>
+    </qresource>
+    <qresource prefix="/components">
+        <file alias="Button.qml">qml/components/Button.qml</file>
+        <file alias="ScrollBar.qml">qml/components/ScrollBar.qml</file>
+        <file alias="Tab.qml">qml/components/Tab.qml</file>
+        <file alias="TabPanel.qml">qml/components/TabPanel.qml</file>
+        <file alias="TextBox.qml">qml/components/TextBox.qml</file>
+        <file alias="TextButton.qml">qml/components/TextButton.qml</file>
     </qresource>
 </RCC>

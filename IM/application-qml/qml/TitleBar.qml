@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import "qrc:images"
 
 Rectangle {
     id: titleRect
@@ -34,7 +33,6 @@ Rectangle {
         anchors.right: parent.right
         anchors.rightMargin: -60
         scale: 0.4
-//        source: "images/BBV_Logo.png"
         source:"images/BBV_Logo.png"
     }
 }

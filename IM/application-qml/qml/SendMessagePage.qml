@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import "components"
 
 Rectangle {
     id:sendMessagePage
@@ -40,8 +41,7 @@ Rectangle {
             anchors.top: parent.top
             anchors.right:  parent.right
             anchors.topMargin: 1
-            source:  "images/chat_simley_happy.png"
-
+            source: "images/chat_smiley_happy.png"
         }
 
         Button {

@@ -15,7 +15,6 @@ HEADERS += \
 
 OTHER_FILES += \
     qml/main.qml \
-    qml/Button.qml \
     qml/EventList.qml \
     qml/Event.qml \
     qml/EventView.qml \
@@ -26,7 +25,6 @@ OTHER_FILES += \
     qml/Delegate.qml \
     qml/ScrollBar.qml \
     qml/SettingsAndLogo.qml \
-    qml/Tab.qml \
     qml/TabPanel.qml \
     qml/MenuBar.qml \
     qml/TitleBar.qml \
@@ -38,11 +36,16 @@ OTHER_FILES += \
     qml/SmallText.qml \
     qml/UserPage.qml \
     qml/UserView.qml \
-    qml/SendEventPage.qml
+    qml/SendEventPage.qml \
+    qml/components/TextButton.qml \
+    qml/components/TextBox.qml \
+    qml/components/TabPanel.qml \
+    qml/components/Tab.qml \
+    qml/components/ScrollBar.qml \
+    qml/components/Button.qml
 
 RESOURCES += \
-    application-qml.qrc \
-    icons.qrc
+    application-qml.qrc
 
 unix: QMAKE_CXXFLAGS_DEBUG += -fprofile-arcs -ftest-coverage
 

@@ -49,13 +49,13 @@ Item/*FocusScope*/ {
     signal enterPressed()
 
     BorderImage {
-        source: "images/lineedit-bg.png"
+        source: "../images/lineedit-bg.png"
         width: parent.width; height: parent.height
         border { left: 4; top: 4; right: 4; bottom: 4 }
     }
 
     BorderImage {
-        source: "images/lineedit-bg-focus.png"
+        source: "../images/lineedit-bg-focus.png"
         width: parent.width; height: parent.height
         border { left: 4; top: 4; right: 4; bottom: 4 }
         visible: parent.activeFocus ? true : false
@@ -94,7 +94,7 @@ Item/*FocusScope*/ {
     Image {
         id: clear
         anchors { right: parent.right; rightMargin: 10; verticalCenter: parent.verticalCenter }
-        source: "images/clear.png"
+        source: "../images/clear.png"
         opacity: 0
         scale: 2
 
