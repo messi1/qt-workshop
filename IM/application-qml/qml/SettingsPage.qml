@@ -20,16 +20,17 @@ Rectangle {
         font.family: "OpenSymbol"
         font.pixelSize: 15
         width:150
+        height:20
     }
 
     BorderImage {
         id: borderImage
         source: "images/lineedit-bg.png"
         border { left: 4; top: 4; right: 4; bottom: 4 }
-        anchors.top: parent.top
-        anchors.left: nickText.left
+        anchors.top: nickText.bottom
+        anchors.left: parent.left
         anchors.right: parent.right
-        height: parent.height
+        height: parent.height-nickText.height
     }
 
 //    FocusScope
@@ -39,8 +40,12 @@ Rectangle {
 
     TextInput{
         id: nicknameInput
-        anchors.fill: parent
-        anchors.margins: 5
+//        anchors.fill: parent
+//        anchors.margins: 5
+        anchors.top: nickText.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: parent.height-nickText.height
         color: "black"
         font.family: "OpenSymbol"
         font.pixelSize: 16

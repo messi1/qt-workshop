@@ -67,7 +67,7 @@ Item {
             State {
                 name: "user"
                 PropertyChanges { target: userPage; opacity:1.0; restoreEntryValues: true }
-                PropertyChanges { target: menuBar; height:250; restoreEntryValues: true }
+                PropertyChanges { target: menuBar; height:150; restoreEntryValues: true }
             },
             State {
                 name: "event"
@@ -77,7 +77,7 @@ Item {
             State {
                 name: "setting"
                 PropertyChanges { target: settingsPage; opacity:1.0; restoreEntryValues: true }
-                PropertyChanges { target: menuBar; height:100; restoreEntryValues: true }
+                PropertyChanges { target: menuBar; height:120; restoreEntryValues: true }
             }
         ]
 
